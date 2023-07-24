@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 function Login() {
   const URL = 'http://localhost:3000/users/login';
-
+  const navigate = useNavigate();
+  const [showConfirmation, setShowConfirmation] = useState(false);
   // fetch request handler
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,6 +25,11 @@ function Login() {
         body: JSON.stringify(submission),
       });
       console.log('response: ', res);
+      if (res.ok) {
+        navigate('/dashboard');
+      } else {
+        setShowConfirmation(true);
+      }
     } catch (err) {
       console.log(err);
     }
@@ -58,6 +66,7 @@ function Login() {
             />
             <button>Login</button>
           </form>
+          {showConfirmation && <p id='error'>Wrong username or password! </p>}
         </div>
       </div>
     </div>
