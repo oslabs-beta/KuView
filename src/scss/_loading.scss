@@ -1,5 +1,5 @@
-$size: 150px;
-$primaryColor: rgb(156, 175, 136);
+$size: 200px;
+$primaryColor: rgb(136, 171, 175);
 .container {
   display: flex;
   justify-content: center;
@@ -9,6 +9,17 @@ $primaryColor: rgb(156, 175, 136);
   width: 50%;
 }
 
+.wrapper {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(
+    circle at 24.1% 68.8%,
+    rgb(50, 50, 50) 0%,
+    rgb(0, 0, 0) 99.4%
+  );
+}
 @keyframes rotate {
   0% {
     transform: rotateX(-37.5deg) rotateY(45deg);
@@ -37,7 +48,7 @@ $primaryColor: rgb(156, 175, 136);
 
 .cube .sides * {
   box-sizing: border-box;
-  background-color: rgba(156, 175, 136, 0.5);
+  background-color: rgba(30, 128, 208, 0.5);
   border: calc($size / 10) solid white;
 }
 
@@ -85,8 +96,8 @@ $primaryColor: rgb(156, 175, 136);
 
 .text {
   margin-top: $size * 3;
-  color: rgb(14, 58, 108);
-  font-size: 1.5rem;
+  color: #fff;
+  font-size: 2rem;
   width: 100%;
   font-weight: 600;
   text-align: center;
