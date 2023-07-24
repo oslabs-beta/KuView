@@ -3,9 +3,11 @@ const app = express();
 const path = require('path');
 const cors = require('cors');
 require('dotenv').config();
+const PORT = 3000;
 const userController = require('./controllers/userController');
 const userRoutes = require('./routes/userRoutes.js');
-
+const db = require('./database/db.config.js');
+db();
 // handle parsing request body
 app.use(cors()); //Handles cors errors.
 app.use(express.urlencoded({ extended: true }));
@@ -46,8 +48,8 @@ app.use((err, req, res, next) => {
   return res.status(errorObj.status).json(errorObj.message);
 });
 
-app.listen(process.env.PORT, () => {
-  console.log(`Listening on port ${process.env.PORT}`);
+app.listen(PORT, () => {
+  console.log(`Listening on port ${PORT}`);
 });
 
 module.exports = app;

@@ -1,27 +1,18 @@
+// if (process.env.NODE_ENV != 'production') {
+  //require('dotenv').config();
+// }
 require('dotenv').config();
-const { Pool } = require('mongodb');
 
-const pool = new Pool({
-  connectionString: 'insert string here',
-  //   connectionString: process.env.MONGO_URI
-});
+const mongoose = require('mongoose');
 
-async function run() {
+async function connectToDb() {
   try {
-    // Connect the client to the server
-    await client.connect();
-    // Send a ping to confirm a successful connection
-    await client.db('admin').command({ ping: 1 });
-    console.log(
-      'Pinged your deployment. You successfully connected to MongoDB!'
-    );
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
+    // await mongoose.connect(process.env.MONGO_URI);
+    await mongoose.connect("mongodb+srv://erennie97:s7jelSMjuFVsOJsb@kuview-users.shwpyh3.mongodb.net/?retryWrites=true&w=majority");
+    console.log('DB connection complete');
+  } catch (err) {
+    console.log(err);
   }
 }
-run().catch(console.dir);
 
-module.exports = {
-  query: (text, params, callback) => pool.query(text, params, callabck),
-};
+module.exports = connectToDb;
