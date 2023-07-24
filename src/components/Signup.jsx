@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 function Signup() {
   const URL = 'http://localhost:3000/users/signup';
-
+  const navigate = useNavigate();
+  const [showConfirmation, setShowConfirmation] = useState(false); // State to control confirmation message
   // fetch request handler
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,7 +22,12 @@ function Signup() {
         },
         body: JSON.stringify(submission),
       });
-      console.log('response', res);
+      if (res.ok) {
+        setShowConfirmation(true);
+        setTimeout(() => {
+          navigate('/login');
+        }, 1000);
+      }
     } catch (err) {
       console.log(err);
     }
@@ -58,6 +65,7 @@ function Signup() {
             />
             <button>Sign up</button>
           </form>
+          {showConfirmation && <p id='confirmation'>Sign up confirmed! ✅</p>}
         </div>
       </div>
     </div>
