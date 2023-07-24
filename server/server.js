@@ -3,7 +3,7 @@ const app = express();
 const path = require('path');
 const cors = require('cors');
 require('dotenv').config();
-const PORT = 3000;
+// const PORT = 3000;
 const userController = require('./controllers/userController');
 const userRoutes = require('./routes/userRoutes.js');
 const db = require('./database/db.config.js');
@@ -51,8 +51,8 @@ app.use((err, req, res, next) => {
   return res.status(errorObj.status).json(errorObj.message);
 });
 
-app.listen(PORT, () => {
-  console.log(`Listening on port ${PORT}`);
+app.listen(process.env.PORT, () => {
+  console.log(`Listening on port ${process.env.PORT}`);
 });
 
 module.exports = app;
