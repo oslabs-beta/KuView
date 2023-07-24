@@ -4,7 +4,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const dotenv = require('dotenv');
 dotenv.config();
-
 module.exports = {
   //entry is where webpack starts to build dependency graph
   mode: process.env.NODE_ENV,
