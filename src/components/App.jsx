@@ -8,13 +8,11 @@ import Signup from './Signup';
 function App() {
   return (
     <>
-      {/* <Navbar /> */}
-      {/* <Login /> */}
       <Routes>
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
+        <Route path='/' element={<Login />} />
       </Routes>
-      {/* <Signup /> */}
     </>
   );
 }
