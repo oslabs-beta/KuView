@@ -11,7 +11,7 @@ module.exports = {
   //output is where Webpack saves our bundle
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'bundle.js', //[name] grabs from the entry obj
+    filename: 'bundle.js',
   },
 
   plugins: [
