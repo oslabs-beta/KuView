@@ -2,14 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function Login() {
+  const URL = '/api/login';
+
   // fetch request handler
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = new FormData(e.target);
-    // logs the form data
+    // form data
     const submission = Object.fromEntries(data.entries());
-    console.log('submission', submission);
-    //
+    // submit fetch request to backend here
   };
   return (
     <div className='login'>

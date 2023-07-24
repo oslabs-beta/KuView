@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function Signup() {
+  const URL = '/api/signup';
+
   // fetch request handler
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -10,7 +12,18 @@ function Signup() {
     const submission = Object.fromEntries(data.entries());
     console.log('submission', submission);
     //
+    fetch(URL, {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(submission),
+    }).then((res) => {
+      return res.json();
+    });
   };
+
   return (
     <div className='signup'>
       <div className='card'>
