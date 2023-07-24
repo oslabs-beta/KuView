@@ -32,12 +32,6 @@ app.get('/', (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, '../index.html'));
 });
 
-// post method for user to db
-app.post('/signup', userController.createUser, (req, res) => {
-  console.log('--entering post method for route--');
-  return res.status(200).json(res.locals.newUser);
-});
-
 // Always send the index.html for all other routes
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../build', 'index.html'));
