@@ -2,16 +2,31 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function Login() {
-  const URL = '/api/login';
+  const URL = 'http://localhost:3000/users/login';
 
   // fetch request handler
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const data = new FormData(e.target);
     // form data
     const submission = Object.fromEntries(data.entries());
+    console.log('submission: ', submission);
     // submit fetch request to backend here
+    try {
+      const res = await fetch(URL, {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(submission),
+      });
+      console.log('response: ', res);
+    } catch (err) {
+      console.log(err);
+    }
   };
+
   return (
     <div className='login'>
       <div className='card'>

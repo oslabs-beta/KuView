@@ -2,26 +2,28 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function Signup() {
-  const URL = '/api/signup';
+  const URL = 'http://localhost:3000/users/signup';
 
   // fetch request handler
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const data = new FormData(e.target);
     // logs the form data
     const submission = Object.fromEntries(data.entries());
     console.log('submission', submission);
-    //
-    fetch(URL, {
-      method: 'POST',
-      mode: 'cors',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(submission),
-    }).then((res) => {
-      return res.json();
-    });
+    try {
+      const res = await fetch(URL, {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(submission),
+      });
+      console.log('response', res);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
