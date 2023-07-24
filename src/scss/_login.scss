@@ -1,0 +1,100 @@
+// utilities
+@import 'variables';
+
+.login {
+  height: 100vh;
+  background: radial-gradient(
+    circle at 24.1% 68.8%,
+    rgb(50, 50, 50) 0%,
+    rgb(0, 0, 0) 99.4%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .card {
+    width: 50%;
+    height: 50%;
+    display: flex;
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    min-height: 60%;
+    overflow: hidden;
+    .left {
+      flex: 1;
+      background-image: url('https://images.unsplash.com/photo-1640346876473-f76a73c71539?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=654&q=80');
+      background-size: cover;
+      //   border-top-left-radius: 10px;
+      //   border-bottom-left-radius: 10px;
+      display: flex;
+      padding: 3em;
+      flex-direction: column;
+      gap: 30px;
+      color: #fff;
+      h1 {
+        font-size: 2.5rem;
+        line-height: 3rem;
+      }
+      p {
+      }
+      span {
+        font-size: 0.8rem;
+      }
+      button {
+        margin-top: -15px;
+        width: 50%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #5069ff;
+        background-color: white;
+        color: #5069ff;
+        font-weight: bold;
+        font-size: 0.65rem;
+        &:hover {
+          cursor: pointer;
+          background-image: linear-gradient(rgb(0 0 0/10%) 0 0);
+        }
+      }
+    }
+    .right {
+      flex: 1;
+      padding: 3em;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      h1 {
+        color: #e1dfdf;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        input {
+          color: #fff;
+          border: none;
+          background-color: #1f1f1f;
+          border-bottom: 1px solid lightgray;
+          padding: 20px 10px;
+          &:focus {
+            outline: none;
+          }
+        }
+        button {
+          font-weight: bold;
+          font-size: 0.65rem;
+          width: 50%;
+          cursor: pointer;
+          padding: 10px;
+          border-radius: 5px;
+          border: none;
+          color: #fff;
+          background-color: #5069ff;
+          &:hover {
+            cursor: pointer;
+            background-image: linear-gradient(rgb(0 0 0/10%) 0 0);
+          }
+        }
+      }
+    }
+  }
+}
