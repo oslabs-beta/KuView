@@ -51,6 +51,6 @@ const Button = () => {
   return <button className={styles.button}> Home </button>;
 };
 
-// add comments for improvement!
+//This is for pull request purposes
 
 export default Navbar;
