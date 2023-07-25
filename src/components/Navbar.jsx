@@ -5,6 +5,7 @@ import styles from '../scss/Navbar.module.scss';
 import { BiMenuAltRight } from 'react-icons/bi';
 import { AiOutlineCloseSquare } from 'react-icons/ai';
 //Comment
+
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuToggler = () => setMenuOpen((p) => !p);
