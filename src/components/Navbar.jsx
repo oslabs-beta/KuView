@@ -51,4 +51,6 @@ const Button = () => {
   return <button className={styles.button}> Home </button>;
 };
 
+// add comments for improvement!
+
 export default Navbar;
