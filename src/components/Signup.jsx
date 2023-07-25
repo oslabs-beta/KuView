@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 function Signup() {
-  const URL = 'http://localhost:3000/users/signup';
+  const URL = 'http://localhost:4000/users/signup';
   const navigate = useNavigate();
   const [showConfirmation, setShowConfirmation] = useState(false); // State to control confirmation message
   // fetch request handler
