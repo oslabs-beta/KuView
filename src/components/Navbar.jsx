@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+
 function Navbar() {
   return (
-    <NavContainer>
+    <nav className='nav'>
       <a href='/' className='site-title'>
         KuView
       </a>
@@ -12,13 +13,13 @@ function Navbar() {
           <Link to='#'>Dashboard</Link>
         </li>
         <li>
-          <Link to='#'>About</Link>
+          <Link to='/about'>About</Link>
         </li>
         <li>
           <Link to='#'>Contact</Link>
         </li>
       </ul>
-    </NavContainer>
+    </nav>
   );
 }
 
