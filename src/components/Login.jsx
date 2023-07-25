@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
-function Login() {
-  const URL = 'http://localhost:3000/users/login';
+function Login(props) {
+  const URL = 'http://localhost:4000/users/login';
   const navigate = useNavigate();
   const [showConfirmation, setShowConfirmation] = useState(false);
   // fetch request handler
@@ -13,7 +13,6 @@ function Login() {
     const data = new FormData(e.target);
     // form data
     const submission = Object.fromEntries(data.entries());
-    console.log('submission: ', submission);
     // submit fetch request to backend here
     try {
       const res = await fetch(URL, {
@@ -26,7 +25,11 @@ function Login() {
       });
       console.log('response: ', res);
       if (res.ok) {
-        navigate('/dashboard');
+        // take that response data (which holds the UID and pass it down through props)
+        const objUser = await res.json();
+        // call the setter to set state of user
+        props.setUser(objUser);
+        navigate('/dashboard', { user: objUser });
       } else {
         setShowConfirmation(true);
       }
