@@ -5,6 +5,7 @@ import Navbar from './Navbar';
 import { Route, Routes } from 'react-router-dom';
 import Signup from './Signup';
 import Dashboard from './Dashboard';
+import About from './About';
 
 function App() {
   return (

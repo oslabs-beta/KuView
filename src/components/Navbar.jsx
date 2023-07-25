@@ -1,63 +1,53 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import styles from '../scss/Navbar.module.scss';
+import { BiMenuAltRight } from 'react-icons/bi';
+import { AiOutlineCloseSquare } from 'react-icons/ai';
 
 function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuToggler = () => setMenuOpen((p) => !p);
+
   return (
-    <nav className='nav'>
-      <a href='/' className='site-title'>
-        KuView
-      </a>
-      <ul>
-        <li>
-          <Link to='#'>Dashboard</Link>
-        </li>
-        <li>
-          <Link to='/about'>About</Link>
-        </li>
-        <li>
-          <Link to='#'>Contact</Link>
-        </li>
-      </ul>
-    </nav>
+    <div className={styles.header}>
+      <div className={styles.header__content}>
+        <div>
+          <span className={styles.logo}>KuView</span>
+        </div>
+        <div>
+          <nav
+            className={`${styles.nav} ${menuOpen ? styles[`nav--open`] : {}}`}
+          >
+            <a className={styles.nav__item} href={'/login'}>
+              Dashboard
+            </a>
+            <a className={styles.nav__item} href={'/about'}>
+              About
+            </a>
+            <a className={styles.nav__item} href={'/contact'}>
+              Contact
+            </a>
+            <div className={styles.nav__button__container}>
+              <Button />
+            </div>
+          </nav>
+        </div>
+        <div>
+          <div className={styles.header__button__container}>
+            <Button />
+          </div>
+          <button className={styles.header__toggler} onClick={menuToggler}>
+            {!menuOpen ? <BiMenuAltRight /> : <AiOutlineCloseSquare />}
+          </button>
+        </div>
+      </div>
+    </div>
   );
 }
 
-const NavContainer = styled.nav`
-  background-color: #333;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: stretch;
-  gap: 2rem;
-  padding: 0 1rem;
-  .site-title {
-    font-size: 2.5rem;
-    padding: 0.8rem;
-  }
-
-  a {
-    color: inherit;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    padding: 0.25rem;
-  }
-  ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    display: flex;
-    gap: 1rem;
-
-    li:hover {
-      background-color: #777;
-    }
-
-    li.active {
-      background-color: #555;
-    }
-  }
-`;
+const Button = () => {
+  return <button className={styles.button}> Home </button>;
+};
 
 export default Navbar;
