@@ -6,44 +6,6 @@ const User = require('../models/userModel');
 const DashboardController = {
   createDashboard(req, res, next) {
     try {
-      // console.log('Hello from inside try-catch for createDashboard')
-      // return next()
-      //   axios({
-      //     method:'post',
-      //     url: 'http://localhost:3000/api/dashboards/db',
-      //     headers:{
-      //       Accept: "application/json",
-      //       "Content-Type": "application/json",
-      //     },
-      //     data: JSON.stringify({
-      //       "id": null,
-      //       "uid": null,
-      //       "title": "KuView Dashboard",
-      //       "tags": [ "templated" ],
-      //       "timezone": "browser",
-      //       "schemaVersion": 16,
-      //       "version": 0,
-      //       "refresh": "5s",
-      //       "folderId": 0,
-      //       "message": "",
-      //       "overwrite": false,
-      //       "style": "dark",
-      //       "time": {
-      //         "from": "now-1h",
-      //         "to": "now"
-      //       },
-      //     //   templating: templating,
-      //     //   panels: panels
-      //     })
-      //   })
-      //   .then(data => data.json())
-      //   .then(response => {
-      //     console.log('res.uid inside then chain of dashCont', response.data.uid);
-      //     const { uid } = response.data
-      //     // User.findOneAndUpdate({ username: res.locals.user }, { grafid: uid });
-      //     res.locals.uid = uid
-      //     return next();
-      //   })
       fetch('http://localhost:3000/api/dashboards/db', {
         method: 'POST',
         headers: {

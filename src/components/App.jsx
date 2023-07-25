@@ -17,15 +17,12 @@ function App() {
   }
   //
   useEffect(() => {
+    console.log('this is the cookie', Cookies.get('ssid'))
     if (Cookies.get('ssid')){
       setUser(Cookies.get('ssid'))
-      navigate('/dashboard')
       navigate('/dashboard', { user: user });
     } 
   }, [])
-  let newPath = ''
-  //request to backend /
-    //depending on if it reutrns a string we asign either '/' or '/dashboard'
   return (
     <>
       <Routes>

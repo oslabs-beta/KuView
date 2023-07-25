@@ -25,7 +25,7 @@ const Dashboard = (props) => {
         <LoadingCube />
       ) : (
         <div>
-          <Iframe uid={props.user.grafid} />
+          <Iframe uid={ props.user } />
         </div>
       )}
     </div>

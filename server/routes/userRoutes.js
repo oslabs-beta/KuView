@@ -2,7 +2,7 @@ const express = require('express');
 const userController = require('../controllers/userController.js');
 const router = express.Router();
 const dashboardController = require('../controllers/dashboardController.js');
-
+const cookieController = require('../controllers/cookieController.js')
 
 router.get('/testing', dashboardController.createDashboard, (req, res) => {
   console.log('Hello from testing post', res.locals.uid);
@@ -15,7 +15,7 @@ router.post('/signup', userController.createUser, dashboardController.createDash
   return res.status(200).json(res.locals.updatedUser);
 });
 
-router.post('/login', userController.getUser, (req, res) => {
+router.post('/login', userController.getUser, cookieController.setCookie, (req, res) => {
   console.log('Hello from userRoutes get');
   return res.status(200).json(res.locals.user);
 });

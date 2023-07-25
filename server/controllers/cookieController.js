@@ -1,18 +1,33 @@
 const CookieController = {
   verifyUser: (req, res, next) => {
-
-    if (req.cookies.ssid) res.locals.haveCookie = req.cookies.ssid
-    return next()
-
-    // User
-    //   .findOne({ grafid: req. })
-    //   .then((result) => {
-    //     if(!result) res.redirect(302, '/signup')
-    //     console.log('userid', result._id)
-    //     res.locals.id = result._id;
-    //     next();
-    //   })
-    //   .catch((err) => next(err));
+    try {
+      if (req.cookies.ssid) res.locals.haveCookie = req.cookies.ssid
+      return next()
+    } catch {
+      return next({
+        log: 'An error occurred within the verifyCookie controller found in cookieController.js.',
+        status: 400,
+        message: { err: 'An error occurred when trying to verify cookie.'}
+      })
+    }
+  },
+  setCookie: async (req, res, next) => {
+    try{
+      console.log('grafid',res.locals.user.grafid);
+      res.cookie('ssid', res.locals.user.grafid, {
+        httpOnly: true,
+        maxAge: 901239,
+        path: '/'
+      });
+      return next()
+    }catch{
+      return next({
+        log: 'An error occurred within the setCookie controller found in cookieController.js.',
+        status: 400,
+        message: { err: 'An error occurred when trying set the cookie.' },
+      })
+    }
+    
   }
 }
 

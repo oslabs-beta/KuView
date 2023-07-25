@@ -28,8 +28,8 @@ function Login(props) {
         // take that response data (which holds the UID and pass it down through props)
         const objUser = await res.json();
         // call the setter to set state of user
-        props.setUser(objUser);
-        navigate('/dashboard', { user: objUser });
+        props.setUser(objUser.grafid);
+        navigate('/dashboard', { user: objUser.grafid });
       } else {
         setShowConfirmation(true);
       }

@@ -27,6 +27,7 @@
     "cors-express": "^0.2.2",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "js-cookie": "^3.0.5",
     "loader": "^2.1.1",
     "mongodb": "^5.7.0",
     "mongoose": "^7.3.4",

@@ -7,11 +7,13 @@ const userController = require('./controllers/userController.js');
 const CookieController = require('./controllers/cookieController.js')
 const userRoutes = require('./routes/userRoutes.js');
 const db = require('./database/db.config.js');
+const cookieParser = require('cookie-parser');
 db();
 // handle parsing request body
 app.use(cors()); //Handles cors errors.
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cookieParser());
 
 //to the user routes
 app.use('/users', userRoutes);
