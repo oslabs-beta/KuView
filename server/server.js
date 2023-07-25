@@ -3,8 +3,8 @@ const app = express();
 const path = require('path');
 const cors = require('cors');
 require('dotenv').config();
-// const PORT = 3000;
-const userController = require('./controllers/userController');
+const userController = require('./controllers/userController.js');
+const CookieController = require('./controllers/cookieController.js')
 const userRoutes = require('./routes/userRoutes.js');
 const db = require('./database/db.config.js');
 db();
@@ -16,19 +16,12 @@ app.use(express.json());
 //to the user routes
 app.use('/users', userRoutes);
 
-// if (process.env.NODE_ENV === 'production') {
-//   // statically serve everything in the build folder on the route '/build'
-//   app.use('/build', express.static(path.join(__dirname, '../build')));
-//   // serve index.html on the route '/'
-//   app.get('/', (req, res) => {
-//     return res.status(200).sendFile(path.join(__dirname, '../index.html'));
-//   });
-// }
 
 // statically serve everything in the build folder on the route '/build'
 app.use(express.static(path.join(__dirname, '../build')));
 // serve index.html on the route '/'
 app.get('/', (req, res) => {
+  // if (res.locals.haveCookie) return res.status(200).send(res.locals.haveCookie)
   return res.status(200).sendFile(path.join(__dirname, '../index.html'));
 });
 
