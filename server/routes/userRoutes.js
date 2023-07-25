@@ -1,10 +1,18 @@
 const express = require('express');
 const userController = require('../controllers/userController.js');
 const router = express.Router();
+const dashboardController = require('../controllers/dashboardController.js');
 
-router.post('/signup', userController.createUser, (req, res) => {
+
+router.get('/testing', dashboardController.createDashboard, (req, res) => {
+  console.log('Hello from testing post', res.locals.uid);
+  return res.status(200).json(`http://localhost:3000/d/${res.locals.uid}/kuview-2?orgId=1&refresh=5s`);
+  //
+});
+
+router.post('/signup', userController.createUser, dashboardController.createDashboard, dashboardController.updateUID, (req, res) => {
   console.log('Hello from userRoutes post');
-  return res.status(200).json(res.locals.user);
+  return res.status(200).json(res.locals.updatedUser);
 });
 
 router.post('/login', userController.getUser, (req, res) => {

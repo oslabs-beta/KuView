@@ -1,0 +1,203 @@
+{
+  "list": [
+    {
+      "current": {
+        "selected": false,
+        "text": "Prometheus",
+        "value": "Prometheus"
+      },
+      "hide": 0,
+      "includeAll": false,
+      "multi": false,
+      "name": "datasource",
+      "options": [],
+      "query": "prometheus",
+      "refresh": 1,
+      "regex": "",
+      "skipUrlSync": false,
+      "type": "datasource"
+    },
+    {
+      "current": {
+        "selected": false,
+        "text": "15s",
+        "value": "15s"
+      },
+      "hide": 0,
+      "includeAll": false,
+      "multi": false,
+      "name": "resolution",
+      "options": [
+        {
+          "selected": false,
+          "text": "1s",
+          "value": "1s"
+        },
+        {
+          "selected": true,
+          "text": "15s",
+          "value": "15s"
+        },
+        {
+          "selected": false,
+          "text": "30s",
+          "value": "30s"
+        },
+        {
+          "selected": false,
+          "text": "1m",
+          "value": "1m"
+        },
+        {
+          "selected": false,
+          "text": "3m",
+          "value": "3m"
+        },
+        {
+          "selected": false,
+          "text": "5m",
+          "value": "5m"
+        }
+      ],
+      "query": "1s, 15s, 30s, 1m, 3m, 5m",
+      "skipUrlSync": false,
+      "type": "custom"
+    },
+    {
+      "current": {
+        "isNone": true,
+        "selected": false,
+        "text": "None",
+        "value": ""
+      },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "definition": "label_values(up{job=\"kube-state-metrics\"},cluster)",
+      "hide": 2,
+      "includeAll": false,
+      "multi": false,
+      "name": "cluster",
+      "options": [],
+      "query": {
+        "query": "label_values(up{job=\"kube-state-metrics\"},cluster)",
+        "refId": "PrometheusVariableQueryEditor-VariableQuery"
+      },
+      "refresh": 2,
+      "regex": "",
+      "skipUrlSync": false,
+      "sort": 1,
+      "type": "query"
+    },
+    {
+      "current": {
+        "selected": false,
+        "text": "default",
+        "value": "default"
+      },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "definition": "label_values(kube_pod_info{job=\"kube-state-metrics\", cluster=\"$cluster\"},namespace)",
+      "hide": 0,
+      "includeAll": false,
+      "multi": false,
+      "name": "namespace",
+      "options": [],
+      "query": {
+        "query": "label_values(kube_pod_info{job=\"kube-state-metrics\", cluster=\"$cluster\"},namespace)",
+        "refId": "PrometheusVariableQueryEditor-VariableQuery"
+      },
+      "refresh": 2,
+      "regex": "",
+      "skipUrlSync": false,
+      "sort": 1,
+      "type": "query"
+    },
+    {
+      "current": {
+        "selected": false,
+        "text": "deployment",
+        "value": "deployment"
+      },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "definition": "label_values(namespace_workload_pod:kube_pod_owner:relabel{cluster=\"$cluster\", namespace=\"$namespace\", workload=~\".+\"},workload_type)",
+      "hide": 0,
+      "includeAll": false,
+      "multi": false,
+      "name": "type",
+      "options": [],
+      "query": {
+        "query": "label_values(namespace_workload_pod:kube_pod_owner:relabel{cluster=\"$cluster\", namespace=\"$namespace\", workload=~\".+\"},workload_type)",
+        "refId": "PrometheusVariableQueryEditor-VariableQuery"
+      },
+      "refresh": 2,
+      "regex": "",
+      "skipUrlSync": false,
+      "sort": 0,
+      "type": "query"
+    },
+    {
+      "current": {
+        "selected": false,
+        "text": "All",
+        "value": "$__all"
+      },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "$datasource"
+      },
+      "definition": "label_values(up{job=\"kubelet\", metrics_path=\"/metrics\",cluster=\"$cluster\"},instance1)",
+      "hide": 0,
+      "includeAll": true,
+      "label": "Kubelet Instance",
+      "multi": false,
+      "name": "instance1",
+      "options": [],
+      "query": {
+        "query": "label_values(up{job=\"kubelet\", metrics_path=\"/metrics\",cluster=\"$cluster\"},instance1)",
+        "refId": "PrometheusVariableQueryEditor-VariableQuery"
+      },
+      "refresh": 2,
+      "regex": "",
+      "skipUrlSync": false,
+      "sort": 1,
+      "tagValuesQuery": "",
+      "tagsQuery": "",
+      "type": "query",
+      "useTags": false
+    },
+    {
+      "current": {
+        "selected": false,
+        "text": "192.168.49.2:9100",
+        "value": "192.168.49.2:9100"
+      },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "$datasource"
+      },
+      "definition": "",
+      "hide": 0,
+      "includeAll": false,
+      "label": "Instance",
+      "multi": false,
+      "name": "instance",
+      "options": [],
+      "query": "label_values(node_uname_info{job=\"node-exporter\", sysname!=\"Darwin\"}, instance)",
+      "refresh": 2,
+      "regex": "",
+      "skipUrlSync": false,
+      "sort": 0,
+      "tagValuesQuery": "",
+      "tagsQuery": "",
+      "type": "query",
+      "useTags": false
+    }
+  ]
+}
