@@ -17,12 +17,12 @@ function App() {
   }
   //
   useEffect(() => {
-    console.log('this is the cookie', Cookies.get('ssid'))
-    if (Cookies.get('ssid')){
-      setUser(Cookies.get('ssid'))
+    console.log('this is the cookie', Cookies.get('ssid'));
+    if (Cookies.get('ssid')) {
+      setUser(Cookies.get('ssid'));
       navigate('/dashboard', { user: user });
-    } 
-  }, [])
+    }
+  }, [user]);
   return (
     <>
       <Routes>

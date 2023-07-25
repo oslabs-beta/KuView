@@ -4,7 +4,7 @@ const path = require('path');
 const cors = require('cors');
 require('dotenv').config();
 const userController = require('./controllers/userController.js');
-const CookieController = require('./controllers/cookieController.js')
+const CookieController = require('./controllers/cookieController.js');
 const userRoutes = require('./routes/userRoutes.js');
 const db = require('./database/db.config.js');
 const cookieParser = require('cookie-parser');
@@ -17,7 +17,6 @@ app.use(cookieParser());
 
 //to the user routes
 app.use('/users', userRoutes);
-
 
 // statically serve everything in the build folder on the route '/build'
 app.use(express.static(path.join(__dirname, '../build')));

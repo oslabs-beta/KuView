@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import Cookies from 'js-cookie';
 
 function Login(props) {
   const URL = 'http://localhost:4000/users/login';
@@ -28,6 +29,7 @@ function Login(props) {
         // take that response data (which holds the UID and pass it down through props)
         const objUser = await res.json();
         // call the setter to set state of user
+        Cookies.set('ssid', objUser.grafid, { expires: 1 });
         props.setUser(objUser.grafid);
         navigate('/dashboard', { user: objUser.grafid });
       } else {
