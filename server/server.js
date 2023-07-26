@@ -3,44 +3,26 @@ const app = express();
 const path = require('path');
 const cors = require('cors');
 require('dotenv').config();
-// const PORT = 3000;
-const userController = require('./controllers/userController');
+const userController = require('./controllers/userController.js');
+const CookieController = require('./controllers/cookieController.js');
 const userRoutes = require('./routes/userRoutes.js');
 const db = require('./database/db.config.js');
+const cookieParser = require('cookie-parser');
 db();
 // handle parsing request body
 app.use(cors()); //Handles cors errors.
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cookieParser());
 
 //to the user routes
 app.use('/users', userRoutes);
-
-// if (process.env.NODE_ENV === 'production') {
-//   // statically serve everything in the build folder on the route '/build'
-//   app.use('/build', express.static(path.join(__dirname, '../build')));
-//   // serve index.html on the route '/'
-//   app.get('/', (req, res) => {
-//     return res.status(200).sendFile(path.join(__dirname, '../index.html'));
-//   });
-// }
-
-//set a cookie
-app.get('/set-cookie', (req, res) => {
-  res.cookie('username', res.locals.user, { maxAge: 3600000, httpOnly: true });
-  res.send('Cookie set successfully!');
-});
-
-//get the value of the cookie
-app.get('/get-cookie', (req, res) => {
-  const username = req.cookies.username;
-  res.send('Username: ${username}');
-});
 
 // statically serve everything in the build folder on the route '/build'
 app.use(express.static(path.join(__dirname, '../build')));
 // serve index.html on the route '/'
 app.get('/', (req, res) => {
+  // if (res.locals.haveCookie) return res.status(200).send(res.locals.haveCookie)
   return res.status(200).sendFile(path.join(__dirname, '../index.html'));
 });
 
