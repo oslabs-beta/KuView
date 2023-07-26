@@ -1,7 +1,7 @@
-//UTILS
+// //UTILS
 $primary: #121212;
 
-// MEDIA QUERIES
+// // MEDIA QUERIES
 @mixin mobile {
   @media screen and (max-width: 480px) {
     @content;

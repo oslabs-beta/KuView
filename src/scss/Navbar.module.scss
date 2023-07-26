@@ -1,0 +1,141 @@
+@import './navVariables.scss';
+
+.header {
+  height: $header-height;
+  background: $bg2;
+  color: $text2;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  box-shadow: 0 1px 5px $primary;
+
+  &__content {
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 0 $spacing-md;
+    @include breakpoint(md) {
+      padding: 0 $spacing-lg;
+    }
+    transition: 0.3s ease padding;
+
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    & > div {
+      flex: 1;
+      white-space: nowrap;
+
+      &:nth-child(2) {
+        display: flex;
+        justify-content: flex-end;
+        height: 100%;
+
+        margin-right: $spacing-md;
+      }
+      &:last-of-type {
+        display: flex;
+        justify-content: flex-end;
+        flex: 0;
+      }
+    }
+  }
+
+  &__button__container {
+    display: none;
+    @include breakpoint(md) {
+      display: initial;
+    }
+  }
+  &__toggler {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    @include breakpoint(md) {
+      display: none;
+    }
+    & > svg {
+      display: block;
+      font-size: 32px;
+    }
+  }
+}
+
+.logo {
+  font-size: 26px;
+  font-weight: 700;
+  color: $text2;
+}
+
+.nav {
+  width: 100%;
+  position: fixed;
+  top: $header-height;
+  right: -100%;
+  background: rgba($bg2, 0.8);
+  text-align: center;
+  padding: $spacing-md 0;
+
+  &--open {
+    transition: 0.2s ease right;
+    right: 0;
+  }
+
+  &__item {
+    display: block;
+    padding: $spacing-md;
+
+    text-decoration: none;
+    color: inherit;
+
+    height: 100%;
+
+    transition: 0.3s ease color;
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  @include breakpoint(md) {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: initial;
+    width: auto;
+    padding: 0;
+
+    &__item {
+      padding: 0 $spacing-lg;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &__button__container {
+    @include breakpoint(md) {
+      display: none;
+    }
+    padding: $spacing-md;
+  }
+}
+
+.button {
+  font-weight: 500;
+  color: $primary;
+  border: 2px solid $primary;
+  padding: $spacing-sm $spacing-lg;
+  border-radius: calc($spacing-sm/ 2);
+  cursor: pointer;
+
+  box-shadow: 0 0 0.5em 0 $primary;
+
+  &:active {
+    transform: scale(0.98);
+    border-radius: 0;
+  }
+  &:hover {
+    box-shadow: 0 0 0.75em 0 $primary;
+  }
+}

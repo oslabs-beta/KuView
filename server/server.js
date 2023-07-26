@@ -25,6 +25,18 @@ app.use('/users', userRoutes);
 //   });
 // }
 
+//set a cookie
+app.get('/set-cookie', (req, res) => {
+  res.cookie('username', res.locals.user, { maxAge: 3600000, httpOnly: true });
+  res.send('Cookie set successfully!');
+});
+
+//get the value of the cookie
+app.get('/get-cookie', (req, res) => {
+  const username = req.cookies.username;
+  res.send('Username: ${username}');
+});
+
 // statically serve everything in the build folder on the route '/build'
 app.use(express.static(path.join(__dirname, '../build')));
 // serve index.html on the route '/'
