@@ -18,9 +18,9 @@ function App() {
   }
   //
   useEffect(() => {
-    console.log('this is the cookie', Cookies.get('ssid'));
-    if (Cookies.get('ssid')) {
-      setUser(Cookies.get('ssid'));
+    console.log('this is the cookie', Cookies.get('grafid'));
+    if (Cookies.get('grafid')) {
+      setUser(Cookies.get('grafid'));
       navigate('/dashboard', { user: user });
     }
   }, [user]);
