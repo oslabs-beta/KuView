@@ -4,6 +4,7 @@ import { Link, useNavigate, userNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Navbar from './Navbar';
 import Iframe from './Iframe';
+import Cookies from 'js-cookie';
 
 const Dashboard = (props) => {
   // fake simulation of loading and then displaying data afterwards
@@ -12,12 +13,13 @@ const Dashboard = (props) => {
 
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    props.user === '' ? navigate('/') : fetchData();
     const fetchData = () => {
       setTimeout(() => {
+        console.log('setting to false')
         setIsLoading(false);
       }, 3000);
     };
+    !Cookies.get('grafid') ? navigate('/') : fetchData();
   }, []);
 
   return (
