@@ -34,7 +34,7 @@ function Signup() {
   };
 
   return (
-    <div className='signup'>
+    <div data-testid='signup-element'className='signup'>
       <div className='card'>
         <div className='left'>
           <h1>Welcome to KuView!</h1>

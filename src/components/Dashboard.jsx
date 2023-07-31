@@ -23,7 +23,7 @@ const Dashboard = (props) => {
   }, []);
 
   return (
-    <div>
+    <div data-testid='dashboard-element'>
       {isLoading ? (
         <LoadingCube />
       ) : (
