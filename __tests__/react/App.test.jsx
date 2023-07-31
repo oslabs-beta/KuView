@@ -51,8 +51,13 @@ describe('App', () => {
   });
 
   describe('Authentication - Cookies', () => {
+    beforeEach(() => {
+      // Clear the cookie before each test
+      Cookies.remove('grafid');
+    });
+
     it('renders Dashboard when the route is /dashboard and cookie present', () => {
-      Cookies.set('grafid', 'your_cookie_value', { expires: 1 });
+      Cookies.set('grafid', 'random1234', { expires: 1 });
 
       render(
         <MemoryRouter initialEntries={['/dashboard']}>
@@ -64,9 +69,6 @@ describe('App', () => {
     })
 
     it('does not render Dashboard component when cookie is not present', () => {
-      // Remove the cookie
-      Cookies.remove('grafid'); 
-
       render(
         <MemoryRouter initialEntries={['/dashboard']}>
           <App />
@@ -74,7 +76,6 @@ describe('App', () => {
       );
 
       const dashboardElement = screen.queryByTestId('dashboard-element');
-      console.log(dashboardElement);
       expect(dashboardElement).not.toBeInTheDocument();
     })
   })
