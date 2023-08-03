@@ -73,10 +73,34 @@ describe('Login', () => {
 
             await waitFor(() => {
                 expect(mockSetUser).toHaveBeenCalledWith('test1234');
-
                 const dashboardElement = screen.getByTestId('dashboard-element');
                 expect(dashboardElement).toBeInTheDocument();
             })
+        })
+
+        it('should show wrong username or password confirmation', async () => {
+            const loginButton = screen.getByRole('button', { name: 'Login' });
+            const usernameInput = screen.getByPlaceholderText('Username');
+            const passwordInput = screen.getByPlaceholderText('Password');
+
+            // mock the fetch request response
+            global.fetch = jest.fn(() =>
+                Promise.resolve({
+                    ok: false,
+                })
+            );
+
+            // type in username and password
+            await userEvent.type(usernameInput, 'test1234');
+            await userEvent.type(passwordInput, 'test1234');
+
+            expect(usernameInput.value).toBe('test1234');
+            expect(passwordInput.value).toBe('test1234');
+
+            // click the login button 
+            await userEvent.click(loginButton);
+            const confirmationMessage = await screen.findByText('Wrong username or password!');
+            expect(confirmationMessage).toBeInTheDocument();
         })
 
         it('should redirect user to signup if register button is clicked', async () => {
