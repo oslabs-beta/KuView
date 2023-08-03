@@ -12,7 +12,7 @@ function Navbar(props) {
   const menuToggler = () => setMenuOpen((p) => !p);
 
   return (
-    <div className={styles.header}>
+    <div data-testid='navbar-element' className={styles.header}>
       <div className={styles.header__content}>
         <div>
           <span className={styles.logo}>KuView</span>

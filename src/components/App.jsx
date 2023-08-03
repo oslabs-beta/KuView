@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import LoadingCube from './LoadingCube';
 import Login from './Login';
 import Navbar from './Navbar';
 import { Route, Routes } from 'react-router-dom';
@@ -26,15 +25,15 @@ function App() {
     }
   }, [user]);
   return (
-    <>
-      <Navbar setUser={funcSetUser} />
+    <div data-testid='app-element'>
+      <Navbar />
       <Routes>
         <Route path='/login' element={<Login setUser={funcSetUser} />} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/dashboard' element={<Dashboard user={user} />} />
         <Route path='/' element={<Login setUser={funcSetUser} />} />
       </Routes>
-    </>
+    </div>
   );
 }
 

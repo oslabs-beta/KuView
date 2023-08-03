@@ -6,7 +6,9 @@
   "scripts": {
     "start": "NODE_ENV=production node server/server.js",
     "build": "webpack --mode production",
-    "dev": "concurrently \"nodemon server/server.js\" \"NODE_ENV=development webpack-dev-server --open\""
+    "dev": "concurrently \"nodemon server/server.js\" \"NODE_ENV=development webpack-dev-server --open\"",
+    "test": "jest --verbose",
+    "coverage": "jest --coverage"
   },
   "nodemonConfig": {
     "ignore": [
@@ -42,14 +44,21 @@
     "@babel/core": "^7.22.5",
     "@babel/preset-env": "^7.22.6",
     "@babel/preset-react": "^7.22.5",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
     "babel-loader": "^9.1.2",
     "babel-plugin-styled-components": "^2.1.4",
     "concurrently": "^8.2.0",
     "css-loader": "^6.8.1",
     "dotenv-webpack": "^8.0.1",
     "eslint": "^7.12.0",
+    "eslint-plugin-jest": "^27.2.3",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.3",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^29.6.2",
+    "jest-environment-jsdom": "^29.6.2",
     "nodemon": "^2.0.22",
     "sass": "^1.63.6",
     "sass-loader": "^13.3.2",

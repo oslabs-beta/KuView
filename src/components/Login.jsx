@@ -41,7 +41,7 @@ function Login(props) {
   };
 
   return (
-    <div className='login'>
+    <div data-testid='login-element' className='login'>
       <div className='card'>
         <div className='left'>
           <h1>Welcome to KuView!</h1>
