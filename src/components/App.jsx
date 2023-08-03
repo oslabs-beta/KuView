@@ -12,25 +12,40 @@ import About from './About';
 function App() {
   // useState hook to pass callback down to child component
   const [user, setUser] = useState('');
+  const [cookie, setCookie] = useState('');
   const navigate = useNavigate();
   function funcSetUser(str) {
     setUser(str);
+  }
+  function funcSetCookie(str) {
+    setCookie(str);
   }
   //
   useEffect(() => {
     console.log('this is the cookie', Cookies.get('grafid'));
     if (Cookies.get('grafid')) {
-      setUser(Cookies.get('grafid'));
-      navigate('/dashboard', { user: user });
+      setCookie(Cookies.get('grafid'));
+      console.log('app useeffect');
+      navigate('/dashboard', { user: user, cookie: cookie });
     }
-  }, [user]);
+  }, []);
   return (
     <>
       <Navbar />
       <Routes>
         <Route path='/login' element={<Login setUser={funcSetUser} />} />
         <Route path='/signup' element={<Signup />} />
-        <Route path='/dashboard' element={<Dashboard user={user} />} />
+        <Route
+          path='/dashboard'
+          element={
+            <Dashboard
+              user={user}
+              cookie={cookie}
+              setUser={funcSetUser}
+              setCookie={funcSetCookie}
+            />
+          }
+        />
         <Route path='/' element={<Login setUser={funcSetUser} />} />
       </Routes>
     </>

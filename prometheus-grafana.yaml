@@ -3,5 +3,13 @@ kind: ConfigMap
 metadata:
   name: prometheus-grafana
   namespace: default
+  labels:
+    app.kubernetes.io/instance: prometheus
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: grafana
+    app.kubernetes.io/version: 10.0.1
+    helm.sh/chart: grafana-6.58.2
 data:
-  grafana.ini: "[security] \nallow_embedding = true\n[auth.anonymous] \nenabled = true \norg_role = Admin"
+  grafana.ini:
+    "[security] \nallow_embedding = true\n[auth.anonymous] \nenabled = true \norg_role
+    = Admin\n[users] \ndefault_org_role = Admin"

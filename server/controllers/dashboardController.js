@@ -5,6 +5,7 @@ const User = require('../models/userModel');
 
 const DashboardController = {
   createDashboard(req, res, next) {
+    console.log('sending dashbaord api');
     try {
       fetch('http://localhost:3000/api/dashboards/db', {
         method: 'POST',
@@ -39,12 +40,12 @@ const DashboardController = {
           return ress.json();
         })
         .then((data) => {
-          console.log('testing this is the data', data);
+          //console.log('testing this is the data', data);
           const { uid } = data;
           // User.findOneAndUpdate({ username: res.locals.user.username }, { grafid: uid }, { new: true }).then(rez => {
           //   res.locals.user = rez
           // })
-          console.log('this is inside the then', uid);
+          console.log('this is the UID', uid);
           res.locals.uid = uid;
           return next();
         });
@@ -60,11 +61,14 @@ const DashboardController = {
     }
   },
   updateUID(req, res, next) {
+    const { username, password } = req.body;
+    console.log('inside UPDATEUID', username);
     User.findOneAndUpdate(
-      { username: res.locals.user.username },
+      { username: username },
       { grafid: res.locals.uid },
       { new: true }
     ).then((rez) => {
+      console.log('inside updateUID', rez);
       res.locals.updatedUser = rez;
       return next();
     });

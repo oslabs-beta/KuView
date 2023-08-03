@@ -8,18 +8,36 @@ import Cookies from 'js-cookie';
 
 const Dashboard = (props) => {
   // fake simulation of loading and then displaying data afterwards
-  console.log(props);
   const navigate = useNavigate();
-
   const [isLoading, setIsLoading] = useState(true);
+  const URL = 'http://localhost:4000/users/sendgraf';
   useEffect(() => {
-    const fetchData = () => {
-      setTimeout(() => {
-        console.log('setting to false')
-        setIsLoading(false);
-      }, 3000);
+    const fetchData = async () => {
+      try {
+        const res = await fetch(URL, {
+          method: 'POST',
+          mode: 'cors',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(props.user),
+        });
+        // console.log('response: ', res);
+        if (res.ok) {
+          const objUser = await res.json();
+          props.setUser(objUser);
+          props.setCookie(objUser.grafid);
+          // Cookies.set('grafid', objUser.grafid, { expires: 1 });
+          console.log('stopping loading');
+          setIsLoading(false);
+        }
+      } catch (err) {
+        console.log(err);
+      }
     };
-    !Cookies.get('grafid') ? navigate('/') : fetchData();
+    console.log(isLoading);
+    console.log(props);
+    !props.user ? navigate('/') : fetchData();
   }, []);
 
   return (
@@ -28,7 +46,7 @@ const Dashboard = (props) => {
         <LoadingCube />
       ) : (
         <div>
-          <Iframe uid={props.user} />
+          <Iframe user={props.user} cookie={props.cookie} />
         </div>
       )}
     </div>
