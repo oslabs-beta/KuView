@@ -12,21 +12,21 @@ import About from './About';
 function App() {
   // useState hook to pass callback down to child component
   const [user, setUser] = useState('');
-  const [cookie, setCookie] = useState('');
   const navigate = useNavigate();
   function funcSetUser(str) {
     setUser(str);
+    return;
   }
   function funcSetCookie(str) {
     setCookie(str);
+    return;
   }
   //
   useEffect(() => {
-    console.log('this is the cookie', Cookies.get('grafid'));
-    if (Cookies.get('grafid')) {
-      setCookie(Cookies.get('grafid'));
-      console.log('app useeffect');
-      navigate('/dashboard', { user: user, cookie: cookie });
+    console.log('this is the cookie', Cookies.get('user'));
+    if (Cookies.get('grafid') !== undefined) {
+      //funcSetCookie(Cookies.get('grafid'));
+      navigate('/dashboard', { cookie: Cookies.get('grafid') });
     }
   }, []);
   return (
@@ -37,14 +37,7 @@ function App() {
         <Route path='/signup' element={<Signup />} />
         <Route
           path='/dashboard'
-          element={
-            <Dashboard
-              user={user}
-              cookie={cookie}
-              setUser={funcSetUser}
-              setCookie={funcSetCookie}
-            />
-          }
+          element={<Dashboard user={user} setUser={funcSetUser} />}
         />
         <Route path='/' element={<Login setUser={funcSetUser} />} />
       </Routes>

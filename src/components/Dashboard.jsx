@@ -13,6 +13,8 @@ const Dashboard = (props) => {
   const URL = 'http://localhost:4000/users/sendgraf';
   useEffect(() => {
     const fetchData = async () => {
+      console.log(props.login);
+
       try {
         const res = await fetch(URL, {
           method: 'POST',
@@ -22,12 +24,10 @@ const Dashboard = (props) => {
           },
           body: JSON.stringify(props.user),
         });
-        // console.log('response: ', res);
         if (res.ok) {
           const objUser = await res.json();
           props.setUser(objUser);
-          props.setCookie(objUser.grafid);
-          // Cookies.set('grafid', objUser.grafid, { expires: 1 });
+          Cookies.set('grafid', objUser.grafid, { expires: 1 });
           console.log('stopping loading');
           setIsLoading(false);
         }
@@ -35,9 +35,13 @@ const Dashboard = (props) => {
         console.log(err);
       }
     };
-    console.log(isLoading);
-    console.log(props);
-    !props.user ? navigate('/') : fetchData();
+    if (Cookies.get('grafid') !== undefined) {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 3000);
+    } else {
+      props.user !== '' ? fetchData() : navigate('/');
+    }
   }, []);
 
   return (
@@ -46,7 +50,7 @@ const Dashboard = (props) => {
         <LoadingCube />
       ) : (
         <div>
-          <Iframe user={props.user} cookie={props.cookie} />
+          <Iframe cookie={Cookies.get('grafid')} />
         </div>
       )}
     </div>
