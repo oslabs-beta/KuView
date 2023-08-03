@@ -18,7 +18,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@auth0/auth0-react": "^2.1.1",
     "@reduxjs/toolkit": "^1.9.5",
     "axios": "^1.4.0",
     "bcryptjs": "^2.4.3",

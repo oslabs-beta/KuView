@@ -11,6 +11,7 @@ import About from './About';
 
 function App() {
   // useState hook to pass callback down to child component
+  // update user state name to something that is more of a reference to grafid
   const [user, setUser] = useState('');
   const navigate = useNavigate();
   function funcSetUser(str) {
@@ -26,7 +27,7 @@ function App() {
   }, [user]);
   return (
     <>
-      <Navbar />
+      <Navbar setUser={funcSetUser} />
       <Routes>
         <Route path='/login' element={<Login setUser={funcSetUser} />} />
         <Route path='/signup' element={<Signup />} />

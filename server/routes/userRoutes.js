@@ -4,16 +4,6 @@ const router = express.Router();
 const dashboardController = require('../controllers/dashboardController.js');
 const cookieController = require('../controllers/cookieController.js');
 
-router.get('/testing', dashboardController.createDashboard, (req, res) => {
-  console.log('Hello from testing post', res.locals.uid);
-  return res
-    .status(200)
-    .json(
-      `http://localhost:3000/d/${res.locals.uid}/kuview-2?orgId=1&refresh=5s`
-    );
-  //
-});
-
 router.post(
   '/signup',
   userController.createUser,
@@ -21,13 +11,13 @@ router.post(
   dashboardController.updateUID,
   (req, res) => {
     console.log('Hello from userRoutes post');
-    return res.status(200).json(res.locals.updatedUser);
+    return res.status(201).json(res.locals.updatedUser);
   }
 );
 
 router.post('/login', userController.getUser, (req, res) => {
   console.log('Hello from userRoutes get');
-  return res.status(200).json(res.locals.user);
+  return res.status(201).json(res.locals.user);
 });
 
 // router.delete('/:user', userController.deleteUser, (req, res) => {
