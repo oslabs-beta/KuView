@@ -1,14 +1,12 @@
 import React from 'react';
 import { render, screen, waitFor, fireEvent } from '@testing-library/react';
+import { MemoryRouter, Route, Routes } from 'react-router-dom';
+import userEvent from '@testing-library/user-event';
+
+// IMPORT COMPONENTS:
 import Login from '../../src/components/Login';
 import Dashboard from '../../src/components/Dashboard';
 import Signup from '../../src/components/Signup';
-import { BrowserRouter, MemoryRouter } from 'react-router-dom';
-import userEvent from '@testing-library/user-event';
-
-jest.mock('js-cookie', () => ({
-    set: jest.fn(),
-}));
 
 describe('Login', () => {
     describe('rendering', () => {
@@ -38,9 +36,19 @@ describe('Login', () => {
     })
 
     describe('login functionality', () => {
-        xit('should redirect user to dashboard upon succesful login', async () => {
-            const mockSetUser = jest.fn();
+        const mockSetUser = jest.fn();
 
+        beforeEach(() => {
+            render(<MemoryRouter initialEntries={['/login']}>
+                <Routes>
+                    <Route path="/login" element={<Login setUser={mockSetUser} />} />
+                    <Route path="/signup" element={<Signup />} />
+                    <Route path="/dashboard" element={<Dashboard />} />
+                </Routes>
+            </MemoryRouter>);
+        })
+
+        it('should redirect user to dashboard upon succesful login', async () => {
             const loginButton = screen.getByRole('button', { name: 'Login' });
             const usernameInput = screen.getByPlaceholderText('Username');
             const passwordInput = screen.getByPlaceholderText('Password');
@@ -64,31 +72,48 @@ describe('Login', () => {
             await userEvent.click(loginButton);
 
             await waitFor(() => {
+                expect(mockSetUser).toHaveBeenCalledWith('test1234');
                 const dashboardElement = screen.getByTestId('dashboard-element');
                 expect(dashboardElement).toBeInTheDocument();
             })
-
-            expect(mockSetUser).toHaveBeenCalledWith('test1234');
-            // Check if the navigation to '/dashboard' has occurred
-            expect(screen.getByTestId('dashboard-element')).toBeInTheDocument();
         })
 
+        it('should show wrong username or password confirmation', async () => {
+            const loginButton = screen.getByRole('button', { name: 'Login' });
+            const usernameInput = screen.getByPlaceholderText('Username');
+            const passwordInput = screen.getByPlaceholderText('Password');
+
+            // mock the fetch request response
+            global.fetch = jest.fn(() =>
+                Promise.resolve({
+                    ok: false,
+                })
+            );
+
+            // type in username and password
+            await userEvent.type(usernameInput, 'test1234');
+            await userEvent.type(passwordInput, 'test1234');
+
+            expect(usernameInput.value).toBe('test1234');
+            expect(passwordInput.value).toBe('test1234');
+
+            // click the login button 
+            await userEvent.click(loginButton);
+            const confirmationMessage = await screen.findByText('Wrong username or password!');
+            expect(confirmationMessage).toBeInTheDocument();
+        })
 
         it('should redirect user to signup if register button is clicked', async () => {
-            render(<Login />);
-
             const registerButton = screen.getByRole('button', { name: 'Register' });
-            console.log(registerButton);
             // click the register button
             fireEvent.click(registerButton);
 
-            const signupElement = screen.getByTestId('signup-element');
-
-            expect(signupElement).toBeInTheDocument();
-            expect(window.location.pathname).toBe('/signup')
+            await waitFor(() => {
+                const signupElement = screen.getByTestId('signup-element');
+                expect(signupElement).toBeInTheDocument();
+            })
         })
     })
-
 
 });
 
