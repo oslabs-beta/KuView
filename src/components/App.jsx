@@ -1,38 +1,34 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Login from './Login';
 import Navbar from './Navbar';
 import { Route, Routes } from 'react-router-dom';
 import Signup from './Signup';
 import Dashboard from './Dashboard';
 import Contact from './Contact';
-import Cookies from 'js-cookie';
-import { useNavigate } from 'react-router-dom';
 import About from './About';
 
 function App() {
   // useState hook to pass callback down to child component
   // update user state name to something that is more of a reference to grafid
   const [user, setUser] = useState('');
-  const navigate = useNavigate();
   function funcSetUser(str) {
     setUser(str);
+    return;
   }
   //
-  useEffect(() => {
-    console.log('this is the cookie', Cookies.get('grafid'));
-    if (Cookies.get('grafid')) {
-      setUser(Cookies.get('grafid'));
-      navigate('/dashboard', { user: user });
-    }
-  }, [user]);
   return (
     <div data-testid='app-element'>
       <Navbar setUser={funcSetUser} />
       <Routes>
         <Route path='/login' element={<Login setUser={funcSetUser} />} />
         <Route path='/signup' element={<Signup />} />
-        <Route path='/dashboard' element={<Dashboard user={user} />} />
+        <Route
+          path='/dashboard'
+          element={<Dashboard user={user} setUser={funcSetUser} />}
+        />
         <Route path='/' element={<Login setUser={funcSetUser} />} />
+        <Route path='/about' element={<About setUser={funcSetUser} />} />
+        <Route path='/contact' element={<Contact setUser={funcSetUser} />} />
       </Routes>
     </div>
   );

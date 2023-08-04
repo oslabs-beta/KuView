@@ -3,6 +3,7 @@ const templating = require('../dashJSONfiles/dashboardTemplating.json');
 const User = require('../models/userModel');
 
 const DashboardController = {
+  //inorder to create a custom dashboard we need to send a post request with necessary information and json data.
   createDashboard(req, res, next) {
     try {
       fetch('http://localhost:3000/api/dashboards/db', {
@@ -38,9 +39,7 @@ const DashboardController = {
           return ress.json();
         })
         .then((data) => {
-          console.log('testing this is the data', data);
           const { uid } = data;
-          console.log('this is inside the then', uid);
           res.locals.uid = uid;
           return next();
         });
@@ -56,8 +55,9 @@ const DashboardController = {
     }
   },
   updateUID(req, res, next) {
+    const { username, password } = req.body;
     User.findOneAndUpdate(
-      { username: res.locals.user.username },
+      { username: username },
       { grafid: res.locals.uid },
       { new: true }
     ).then((rez) => {

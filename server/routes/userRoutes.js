@@ -1,25 +1,28 @@
 const express = require('express');
-const userController = require('../controllers/userController.js');
 const router = express.Router();
+const userController = require('../controllers/userController.js');
 const dashboardController = require('../controllers/dashboardController.js');
-const cookieController = require('../controllers/cookieController.js');
+const installController = require('../controllers/installController.js');
 
+router.post('/signup', userController.createUser, (req, res) => {
+  return res.status(200).json(res.locals.user);
+});
+
+router.post('/login', userController.getUser, (req, res, next) => {
+  return res.status(200).json(res.locals.user);
+});
+
+// handles automatic instilation, port forwarding and creates a grafana dashboard for the user.
 router.post(
-  '/signup',
-  userController.createUser,
+  '/sendgraf',
+  installController.installFunc,
+  installController.portFoward,
   dashboardController.createDashboard,
   dashboardController.updateUID,
   (req, res) => {
-    console.log('Hello from userRoutes post');
-    return res.status(201).json(res.locals.updatedUser);
+    return res.status(200).json(res.locals.updatedUser);
   }
 );
-
-router.post('/login', userController.getUser, (req, res) => {
-  console.log('Hello from userRoutes get');
-  return res.status(201).json(res.locals.user);
-});
-
 // router.delete('/:user', userController.deleteUser, (req, res) => {
 //   console.log('Hello from userRoutes delete');
 //   return res.status(200).json(res.locals.user);
