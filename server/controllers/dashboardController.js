@@ -1,4 +1,3 @@
-const axios = require('axios');
 const panels = require('../dashJSONfiles/dashboardPanels.json');
 const templating = require('../dashJSONfiles/dashboardTemplating.json');
 const User = require('../models/userModel');
@@ -27,7 +26,7 @@ const DashboardController = {
             overwrite: false,
             style: 'dark',
             time: {
-              from: 'now-1h',
+              from: 'now-5m',
               to: 'now',
             },
             templating: templating,
@@ -41,9 +40,6 @@ const DashboardController = {
         .then((data) => {
           console.log('testing this is the data', data);
           const { uid } = data;
-          // User.findOneAndUpdate({ username: res.locals.user.username }, { grafid: uid }, { new: true }).then(rez => {
-          //   res.locals.user = rez
-          // })
           console.log('this is inside the then', uid);
           res.locals.uid = uid;
           return next();
