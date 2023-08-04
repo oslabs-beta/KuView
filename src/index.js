@@ -5,9 +5,7 @@ import styles from './scss/App.scss';
 import { BrowserRouter } from 'react-router-dom';
 
 // react render
-const container = document.getElementById('root');
-const root = createRoot(container);
-
+const root = createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
     <App />

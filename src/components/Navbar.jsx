@@ -4,9 +4,10 @@ import { Link } from 'react-router-dom';
 import styles from '../scss/Navbar.module.scss';
 import { BiMenuAltRight } from 'react-icons/bi';
 import { AiOutlineCloseSquare } from 'react-icons/ai';
-//Comment
+import Cookies from 'js-cookie';
+import { useNavigate } from 'react-router-dom';
 
-function Navbar() {
+function Navbar(props) {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuToggler = () => setMenuOpen((p) => !p);
 
@@ -18,7 +19,8 @@ function Navbar() {
         </div>
         <div>
           <nav
-            className={`${styles.nav} ${menuOpen ? styles[`nav--open`] : {}}`}
+            className={`${styles.nav} ${menuOpen ? styles[`nav__open`] : ''}`}
+            data-testid='menu'
           >
             <a className={styles.nav__item} href={'/login'}>
               Dashboard
@@ -30,15 +32,19 @@ function Navbar() {
               Contact
             </a>
             <div className={styles.nav__button__container}>
-              <Button />
+              <Button setUser={props.setUser} />
             </div>
           </nav>
         </div>
         <div>
           <div className={styles.header__button__container}>
-            <Button />
+            <Button setUser={props.setUser} />
           </div>
-          <button className={styles.header__toggler} onClick={menuToggler}>
+          <button
+            className={styles.header__toggler}
+            onClick={menuToggler}
+            aria-label={menuOpen ? 'Close Menu' : 'Open Menu'}
+          >
             {!menuOpen ? <BiMenuAltRight /> : <AiOutlineCloseSquare />}
           </button>
         </div>
@@ -47,10 +53,24 @@ function Navbar() {
   );
 }
 
-const Button = () => {
-  return <button className={styles.button}> Home </button>;
-};
+const Button = (props) => {
+  const navigate = useNavigate();
 
-//This is for pull request purposes
+  const loggingOut = (e) => {
+    e.preventDefault();
+    Cookies.remove('grafid');
+    props.setUser('');
+    navigate('/');
+  };
+  return (
+    <button
+      className={styles.button}
+      onClick={loggingOut}
+      aria-label='Logout Button'
+    >
+      Logout
+    </button>
+  );
+};
 
 export default Navbar;
