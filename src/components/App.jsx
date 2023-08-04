@@ -4,6 +4,7 @@ import Navbar from './Navbar';
 import { Route, Routes } from 'react-router-dom';
 import Signup from './Signup';
 import Dashboard from './Dashboard';
+import Contact from './Contact';
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
 import About from './About';
@@ -26,7 +27,7 @@ function App() {
   }, [user]);
   return (
     <div data-testid='app-element'>
-      <Navbar />
+      <Navbar setUser={funcSetUser} />
       <Routes>
         <Route path='/login' element={<Login setUser={funcSetUser} />} />
         <Route path='/signup' element={<Signup />} />

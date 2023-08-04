@@ -19,7 +19,8 @@ function Navbar(props) {
         </div>
         <div>
           <nav
-            className={`${styles.nav} ${menuOpen ? styles[`nav--open`] : {}}`}
+            className={`${styles.nav} ${menuOpen ? styles[`nav__open`] : ''}`}
+            data-testid='menu'
           >
             <a className={styles.nav__item} href={'/login'}>
               Dashboard
@@ -39,7 +40,11 @@ function Navbar(props) {
           <div className={styles.header__button__container}>
             <Button setUser={props.setUser} />
           </div>
-          <button className={styles.header__toggler} onClick={menuToggler}>
+          <button
+            className={styles.header__toggler}
+            onClick={menuToggler}
+            aria-label={menuOpen ? 'Close Menu' : 'Open Menu'}
+          >
             {!menuOpen ? <BiMenuAltRight /> : <AiOutlineCloseSquare />}
           </button>
         </div>
@@ -58,7 +63,11 @@ const Button = (props) => {
     navigate('/');
   };
   return (
-    <button className={styles.button} onClick={loggingOut}>
+    <button
+      className={styles.button}
+      onClick={loggingOut}
+      aria-label='Logout Button'
+    >
       Logout
     </button>
   );
