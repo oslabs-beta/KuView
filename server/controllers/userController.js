@@ -7,6 +7,7 @@ const UserController = {
       console.log('create user in userController');
       console.log(req.body);
       const { username, email, password } = req.body;
+      // consider adding an error if using an email that's already registered
       const newUser = await User.create({
         username,
         email,

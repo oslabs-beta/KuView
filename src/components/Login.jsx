@@ -28,8 +28,6 @@ function Login(props) {
       if (res.ok) {
         // take that response data (which holds the UID and pass it down through props)
         const objUser = await res.json();
-        // call the setter to set state of user
-        //Cookies.set('user', JSON.stringify(objUser), { expires: 1 });
         props.setUser(objUser);
         navigate('/dashboard');
       } else {

@@ -68,7 +68,7 @@ const DashboardController = {
       { grafid: res.locals.uid },
       { new: true }
     ).then((rez) => {
-      console.log('inside updateUID', rez);
+      //console.log('inside updateUID', rez);
       res.locals.updatedUser = rez;
       return next();
     });

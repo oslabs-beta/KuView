@@ -25,7 +25,6 @@ function App() {
   useEffect(() => {
     console.log('this is the cookie', Cookies.get('user'));
     if (Cookies.get('grafid') !== undefined) {
-      //funcSetCookie(Cookies.get('grafid'));
       navigate('/dashboard', { cookie: Cookies.get('grafid') });
     }
   }, []);
