@@ -8,9 +8,9 @@ const installController = {
       });
       return running.status === 0;
     }
-    // console.log(checkBrew());
+
+    //check if the user has brew installed, shortens install time.
     if (checkBrew()) {
-      console.log('already installed');
       return;
     } else {
       spawnSync(
@@ -40,18 +40,19 @@ const installController = {
     return;
   },
   installProm: (req, res, next) => {
-    console.log('lookup');
+    // looks for all pods that are currently running.
     const lookup = spawnSync('kubectl', ['get', 'pods'], { encoding: 'utf-8' });
-    console.log('got output');
     const output = lookup.stdout.split('\n');
     let target;
     console.log('finding pod');
+    //finds the prometheus-grafana pod.
     output.forEach((line) => {
       if (line.includes('prometheus-grafana')) {
         target = line.split(' ')[0];
       }
     });
     console.log('deleting configmap');
+    //deletes old config map and apply a new one to give user admin access.
     spawnSync('kubectl delete configmap prometheus-grafana', {
       stdio: 'inherit',
       shell: true,
@@ -61,16 +62,15 @@ const installController = {
       stdio: 'inherit',
       shell: true,
     });
-    console.log('deleting pod', target);
+    //deleting the pod so that it can redeploy with the new grafana.ini settings
     spawnSync(`kubectl delete pod ${target}`, {
       stdio: 'inherit',
       shell: true,
     });
-    console.log('deleted');
     return;
   },
   portFoward: (req, res, next) => {
-    console.log('fowarding port');
+    console.log('fowarding port 3000 to grafana');
     spawn(`kubectl port-forward service/prometheus-grafana 3000:80`, {
       shell: true,
     });
@@ -79,7 +79,7 @@ const installController = {
     }, 2000);
   },
   installFunc: async (req, res, next) => {
-    console.log('installing');
+    console.log('installing...');
     const { grafid } = req.body;
     try {
       if (grafid === '' || !grafid) {
@@ -87,9 +87,9 @@ const installController = {
         installController.installBrew();
         console.log('install helm');
         installController.installHelm();
-        console.log('install chart');
+        console.log('installing helm charts');
         installController.installChart();
-        console.log('install prom');
+        console.log('applying grafana.ini settings');
         installController.installProm();
       }
       setTimeout(() => {

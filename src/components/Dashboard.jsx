@@ -1,8 +1,7 @@
 import React from 'react';
 import LoadingCube from './LoadingCube';
-import { Link, useNavigate, userNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import Navbar from './Navbar';
 import Iframe from './Iframe';
 import Cookies from 'js-cookie';
 
@@ -39,13 +38,15 @@ const Dashboard = (props) => {
       setTimeout(() => {
         setIsLoading(false);
       }, 3000);
+    } else if (props.user !== '') {
+      fetchData();
     } else {
-      props.user !== '' ? fetchData() : navigate('/');
+      navigate('/');
     }
   }, []);
 
   return (
-    <div>
+    <div data-testid='dashboard-element'>
       {isLoading ? (
         <LoadingCube />
       ) : (
