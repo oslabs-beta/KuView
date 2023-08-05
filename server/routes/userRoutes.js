@@ -2,11 +2,7 @@ const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/userController.js');
 const dashboardController = require('../controllers/dashboardController.js');
-<<<<<<< HEAD
-
-=======
 const installController = require('../controllers/installController.js');
->>>>>>> dev
 
 router.post('/signup', userController.createUser, (req, res) => {
   return res.status(200).json(res.locals.user);

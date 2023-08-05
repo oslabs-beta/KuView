@@ -19,12 +19,8 @@ function Navbar(props) {
         </div>
         <div>
           <nav
-<<<<<<< HEAD
-            className={`${styles.nav} ${menuOpen ? styles[`nav--open`] : ''}`}
-=======
             className={`${styles.nav} ${menuOpen ? styles[`nav__open`] : ''}`}
             data-testid='menu'
->>>>>>> dev
           >
             <a className={styles.nav__item} href={'/login'}>
               Dashboard
@@ -57,11 +53,6 @@ function Navbar(props) {
   );
 }
 
-<<<<<<< HEAD
-//change to logout
-const Button = () => {
-  return <button className={styles.button}> Home </button>;
-=======
 const Button = (props) => {
   const navigate = useNavigate();
 
@@ -80,7 +71,6 @@ const Button = (props) => {
       Logout
     </button>
   );
->>>>>>> dev
 };
 
 export default Navbar;

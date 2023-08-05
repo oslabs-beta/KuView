@@ -1,5 +1,4 @@
 import React from 'react';
-<<<<<<< HEAD
 import { ContactCard } from './ContactCard';
 import Yeung from "../Images/Yeung.PNG";
 import Esposito from "../Images/Esposito.PNG";
@@ -67,13 +66,3 @@ function Contact() {
 
 export default Contact;
 
-
-
-=======
-
-function Contact() {
-  return <div>Contact</div>;
-}
-
-export default Contact;
->>>>>>> dev

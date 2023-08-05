@@ -6,7 +6,6 @@ import Signup from './Signup';
 import Dashboard from './Dashboard';
 import Contact from './Contact';
 import About from './About';
-import Contact from './Contact';
 
 function App() {
   // useState hook to pass callback down to child component
@@ -17,16 +16,6 @@ function App() {
     return;
   }
   //
-<<<<<<< HEAD
-  useEffect(() => {
-    console.log('this is the cookie', Cookies.get('grafid'));
-    if (Cookies.get('grafid')) {
-      setUser(Cookies.get('grafid'));
-      navigate('/dashboard', { user: user });
-    }
-  }, []);
-=======
->>>>>>> dev
   return (
     <div data-testid='app-element'>
       <Navbar setUser={funcSetUser} />
@@ -38,12 +27,8 @@ function App() {
           element={<Dashboard user={user} setUser={funcSetUser} />}
         />
         <Route path='/' element={<Login setUser={funcSetUser} />} />
-<<<<<<< HEAD
-        <Route path='/contact' element={<Contact />} />
-=======
         <Route path='/about' element={<About setUser={funcSetUser} />} />
         <Route path='/contact' element={<Contact setUser={funcSetUser} />} />
->>>>>>> dev
       </Routes>
     </div>
   );
