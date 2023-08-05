@@ -85,3 +85,27 @@ The dashboard will be saved onto your account and be displayed afterwards.
 You can now view your cluster metrics in real-time, and the dashboard will update automatically. Feel free to personalize the dashboard and rearrange the layout to your preference!
 
 ## Considerations
+
+**As kuView is still early in it's development stage, There are a few things to keep in mind when using this application.**
+
+### Port
+
+KuView requires a number of defult ports to operate. Please **avoid** using the ports listed below.
+
+For more information, execute the following command in your terminal `kubectl get services` after login for the first time.
+| Port | Application |
+|:---:|:-------------------|
+| **8080** | Kuview Dashboard |
+| **4000** | Express |
+| **9090** | Prometheus |
+| **3000** | Grafana |
+
+### Accounts
+
+Currently we are having issue loading the dashboard for any subsequent user, this is duo to a conflict in grafana. Upon a new user login, KuView's attempt to create a new Grafana dashboard with the same name as a previously created one. for a smooth experience, please only use **one** account for the time being.
+
+If you need to create and use a new account, before login please follow the steps listed below:
+
+- execute the following command in your terminal `kubectl port-forward service/prometheus-grafana 3000:80`
+- Once on the dashboard, go to the "Dashboard" section and locate the "General" folder.
+- Within the "General" folder, delete the KuView dashboard to prevent any conflicts.
