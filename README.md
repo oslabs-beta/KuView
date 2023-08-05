@@ -35,7 +35,8 @@ This application requires you to have Docker, Minikube, and kubectl installed in
 - Docker Desktop: [https://www.docker.com/products/docker-desktop/](https://www.docker.com/products/docker-desktop/)
 - Minikube: [https://minikube.sigs.k8s.io/docs/start/](https://minikube.sigs.k8s.io/docs/start/)
 - Kubectl: [https://kubernetes.io/docs/tasks/tools/](https://kubernetes.io/docs/tasks/tools/)
-  After these are installed, start Minikube with Docker:
+
+After these are installed, start Minikube with Docker:
 
 - Open a terminal or command prompt and run `minikube start --driver=docker`. This will start the local Minikube cluster using Docker as the driver.
 - To verify the status of your Minikube cluster, run `minikube status`.
