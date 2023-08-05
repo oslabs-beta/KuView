@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 function Signup() {
+  // Update this to place .env variables for port...
   const URL = 'http://localhost:4000/users/signup';
   const navigate = useNavigate();
   const [showConfirmation, setShowConfirmation] = useState(false); // State to control confirmation message
@@ -34,7 +35,7 @@ function Signup() {
   };
 
   return (
-    <div className='signup'>
+    <div data-testid='signup-element'className='signup'>
       <div className='card'>
         <div className='left'>
           <h1>Welcome to KuView!</h1>

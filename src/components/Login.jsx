@@ -1,14 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
 import Cookies from 'js-cookie';
+import { useState, useEffect } from 'react';
 
 function Login(props) {
   //import .env variable
   const URL = 'http://localhost:4000/users/login';
   const navigate = useNavigate();
   const [showConfirmation, setShowConfirmation] = useState(false);
+  //
+  useEffect(() => {
+    console.log('this is the cookie', Cookies.get('user'));
+    if (Cookies.get('grafid') !== undefined) {
+      navigate('/dashboard', { cookie: Cookies.get('grafid') });
+    }
+  }, []);
   // fetch request handler
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,10 +37,8 @@ function Login(props) {
       if (res.ok) {
         // take that response data (which holds the UID and pass it down through props)
         const objUser = await res.json();
-        // call the setter to set state of user
-        Cookies.set('grafid', objUser.grafid, { expires: 1 });
-        props.setUser(objUser.grafid);
-        navigate('/dashboard', { user: objUser.grafid });
+        props.setUser(objUser);
+        navigate('/dashboard');
       } else {
         setShowConfirmation(true);
       }
@@ -43,7 +48,7 @@ function Login(props) {
   };
 
   return (
-    <div className='login'>
+    <div data-testid='login-element' className='login'>
       <div className='card'>
         <div className='left'>
           <h1>Welcome to KuView!</h1>

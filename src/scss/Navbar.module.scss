@@ -77,7 +77,7 @@
   text-align: center;
   padding: $spacing-md 0;
 
-  &--open {
+  &__open {
     transition: 0.2s ease right;
     right: 0;
   }
