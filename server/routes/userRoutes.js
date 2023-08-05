@@ -23,15 +23,5 @@ router.post(
     return res.status(200).json(res.locals.updatedUser);
   }
 );
-// router.delete('/:user', userController.deleteUser, (req, res) => {
-//   console.log('Hello from userRoutes delete');
-//   return res.status(200).json(res.locals.user);
-// });
-
-// router.put('/:email/:password', userController.updateUser, (req, res) => {
-//   console.log('hello from userRoutes update');
-//   return res.status;
-//   (200).json(res.locals.user);
-// });
 
 module.exports = router;
