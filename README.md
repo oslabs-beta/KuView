@@ -76,4 +76,12 @@ _Once you type in your username, password, and email, the application will direc
 
 After typing in your credentials and logging in, our application will automatically handle the installation of Prometheus and Grafana on your Kubernetes cluster through helm and apply our custom .yaml files.
 
-<!-- insert gif? -->
+<img src="./public/gifs/installation.gif" width="600px"/>
+
+The dashboard will be saved onto your account and be displayed afterwards.
+
+<img src="./public/gifs/customize.gif" width="600px"/>
+
+You can now view your cluster metrics in real-time, and the dashboard will update automatically. Feel free to personalize the dashboard and rearrange the layout to your preference!
+
+## Considerations
