@@ -8,6 +8,7 @@ import Dashboard from './Dashboard';
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
 import About from './About';
+import Contact from './Contact';
 
 function App() {
   // useState hook to pass callback down to child component
@@ -23,7 +24,7 @@ function App() {
       setUser(Cookies.get('grafid'));
       navigate('/dashboard', { user: user });
     }
-  }, [user]);
+  }, []);
   return (
     <>
       <Navbar />
@@ -32,6 +33,7 @@ function App() {
         <Route path='/signup' element={<Signup />} />
         <Route path='/dashboard' element={<Dashboard user={user} />} />
         <Route path='/' element={<Login setUser={funcSetUser} />} />
+        <Route path='/contact' element={<Contact />} />
       </Routes>
     </>
   );

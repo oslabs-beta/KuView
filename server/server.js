@@ -3,8 +3,6 @@ const app = express();
 const path = require('path');
 const cors = require('cors');
 require('dotenv').config();
-const userController = require('./controllers/userController.js');
-const CookieController = require('./controllers/cookieController.js');
 const userRoutes = require('./routes/userRoutes.js');
 const db = require('./database/db.config.js');
 const cookieParser = require('cookie-parser');

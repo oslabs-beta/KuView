@@ -2,7 +2,7 @@ const express = require('express');
 const userController = require('../controllers/userController.js');
 const router = express.Router();
 const dashboardController = require('../controllers/dashboardController.js');
-const cookieController = require('../controllers/cookieController.js');
+
 
 router.get('/testing', dashboardController.createDashboard, (req, res) => {
   console.log('Hello from testing post', res.locals.uid);

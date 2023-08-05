@@ -18,7 +18,7 @@ function Navbar() {
         </div>
         <div>
           <nav
-            className={`${styles.nav} ${menuOpen ? styles[`nav--open`] : {}}`}
+            className={`${styles.nav} ${menuOpen ? styles[`nav--open`] : ''}`}
           >
             <a className={styles.nav__item} href={'/login'}>
               Dashboard
@@ -47,6 +47,7 @@ function Navbar() {
   );
 }
 
+//change to logout
 const Button = () => {
   return <button className={styles.button}> Home </button>;
 };
