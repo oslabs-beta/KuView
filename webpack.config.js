@@ -12,6 +12,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
+    publicPath: '/'
   },
 
   plugins: [
@@ -40,8 +41,7 @@ module.exports = {
       },
       {
         test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
-        type: 'asset/resource',
-        use: ['file-loader'],
+        type: 'asset/resource'
       },
     ],
   },
@@ -51,7 +51,7 @@ module.exports = {
     port: '8080',
     static: {
       directory: path.resolve(__dirname, 'build'),
-      publicPath: 'build',
+      publicPath: '/',
     },
     historyApiFallback: true,
     proxy: {
