@@ -76,6 +76,8 @@ _Once you type in your username, password, and email, the application will direc
 
 After typing in your credentials and logging in, our application will automatically handle the installation of Prometheus and Grafana on your Kubernetes cluster through helm and apply our custom .yaml files.
 
+**We would highly recommend installing [HomeBrew](https://brew.sh/) manually before using KuView** to avoid possible installation issues.
+
 <img src="./public/gifs/installation.gif" width="600px"/>
 
 The dashboard will be saved onto your account and be displayed afterwards.
@@ -109,3 +111,42 @@ If you need to create and use a new account, before login please follow the step
 - execute the following command in your terminal `kubectl port-forward service/prometheus-grafana 3000:80`
 - Once on the dashboard, go to the "Dashboard" section and locate the "General" folder.
 - Within the "General" folder, delete the KuView dashboard to prevent any conflicts.
+
+## Contributions
+
+If you would like to contribute and make KuView a better Open Source Porject,we welcome you with open arms.
+
+Below lists a table of features we currently have and future plans.
+
+<div style="display: flex; ">
+
+|        Feature         | Status |
+| :--------------------: | :----: |
+| Automate installation  |   🎉   |
+|  Grafana yaml config   |   🎉   |
+|    Custom dashboard    |   🎉   |
+|   Password ecryption   |   🎉   |
+| Jest Front-end Testing |   🎉   |
+| Jest Back-end Testing  |   ⏳   |
+| Typescript conversion  |   ⏳   |
+|      Alert System      |   🙌   |
+| Node health Visualizer |   🙌   |
+|   Cluster Visualizer   |   🙌   |
+
+<div style="display: flex; margin-left: 30px; margin-top: 25px ">
+
+- 🎉 = **Completed!**
+- ⏳ = **In Development!**
+- 🙌 = **Open for Contribution!**
+
+</div>
+</div>
+
+## Creators
+|        Creators         | GitHub | LinedIn |
+| :--------------------: | :----: | :----: |
+| **Camoeron Krisksey**  |   <a href="https://github.com/CameronKirksey21" target="blank"><img align="center" src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../releases/preview/2012/png/iconmonstr-github-1.png&r=56&g=136&b=255" alt="github" height="30" width="30" /></a>   | <a href="https://www.linkedin.com/in/cameronkirksey/" target="blank"><img align="center" src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../releases/preview/2012/png/iconmonstr-linkedin-3.png&r=56&g=136&b=255" alt="github" height="30" width="30" /></a> |
+|  **Eric Esposito**  |   <a href="https://github.com/Ericesposito" target="blank"><img align="center" src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../releases/preview/2012/png/iconmonstr-github-1.png&r=56&g=136&b=255" alt="github" height="30" width="30" /></a>    | <a href="https://www.linkedin.com/in/eric-andre-esposito" target="blank"><img align="center" src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../releases/preview/2012/png/iconmonstr-linkedin-3.png&r=56&g=136&b=255" alt="github" height="30" width="30" /></a> |
+|    **Eric Rennie**    |   <a href="https://github.com/ericmrennie" target="blank"><img align="center" src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../releases/preview/2012/png/iconmonstr-github-1.png&r=56&g=136&b=255" alt="github" height="30" width="30" /></a>   | <a href="https://www.linkedin.com/in/ericmrennie/" target="blank"><img align="center" src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../releases/preview/2012/png/iconmonstr-linkedin-3.png&r=56&g=136&b=255" alt="github" height="30" width="30" /></a> |
+|   **Jason Yeung**   |   <a href="https://github.com/JasonY000" target="blank"><img align="center" src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../releases/preview/2012/png/iconmonstr-github-1.png&r=56&g=136&b=255" alt="github" height="30" width="30" /></a>    | <a href="https://www.linkedin.com/in/jason-yeung-yat-shun/" target="blank"><img align="center" src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../releases/preview/2012/png/iconmonstr-linkedin-3.png&r=56&g=136&b=255" alt="github" height="30" width="30" /></a> |
+|   **Richard Dao**   |   <a href="https://github.com/daorichard" target="blank"><img align="center" src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../releases/preview/2012/png/iconmonstr-github-1.png&r=56&g=136&b=255" alt="github" height="30" width="30" /></a>    | <a href="https://www.linkedin.com/in/rdao" target="blank"><img align="center" src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../releases/preview/2012/png/iconmonstr-linkedin-3.png&r=56&g=136&b=255" alt="github" height="30" width="30" /></a> |
