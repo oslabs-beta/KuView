@@ -1,0 +1,10 @@
+@import './navVariables.scss';
+
+.about-card-div {
+  display: flex;
+  background-color: $bg2;
+  border-radius: 20px;
+  border: 1px solid $primary;
+  margin: 1em;
+  padding: 1em;
+}

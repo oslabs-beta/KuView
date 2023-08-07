@@ -1,0 +1,25 @@
+@import './navVariables.scss';
+
+.about-page {
+  height:100vh;
+  padding-top: $header-height;
+  color: white;
+  background: radial-gradient(
+    circle at 24.1% 68.8%,
+    rgb(50, 50, 50) 0%,
+    rgb(0, 0, 0) 99.4%
+  );}
+
+.about-grid {
+  display: grid;
+  padding: 1em;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: repeat(2, 200px);
+}
+
+.about-intro {
+  display: flex;
+  flex-direction: column;
+  height: 20em;
+  padding: 3em;
+}
