@@ -2,9 +2,44 @@
 
 .about-card-div {
   display: flex;
-  background-color: $bg2;
+  width: 100%;
+  color: $bg2;
+  background: rgb(5, 5, 5);
   border-radius: 20px;
   border: 1px solid $primary;
-  margin: 1em;
-  padding: 1em;
+  margin-bottom: 20%;
+  min-width: 410px;
+  
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:50%;
+    min-width: 410px;
+    img {
+      padding: 1em;
+      width: 100%;
+    }
+    p{
+      font-size: 2em;
+      color: $text2;
+      width: 80%;
+    }
+    @media(max-width: 1250px) {
+      p{
+        font-size: 1.5em;
+      }
+    }
+    @media(max-width: 1000px) {
+      p{
+        font-size: 1.2em;
+      }
+    }
+    @media(max-width: 800px) {
+      p{
+        font-size: 0.9em;
+      }
+    }
+  }
 }
+

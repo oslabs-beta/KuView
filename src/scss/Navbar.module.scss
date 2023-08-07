@@ -1,4 +1,7 @@
 @import './navVariables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Handjet:wght@300;400;500;600&display=swap');
+// Font for Logo
+$logoFont: 'Handjet';
 
 .header {
   height: $header-height;
@@ -63,9 +66,11 @@
 }
 
 .logo {
-  font-size: 26px;
+  font-size: 40px;
   font-weight: 700;
   color: $text2;
+  letter-spacing: 2px;
+  font-family: $logoFont;
 }
 
 .nav {
