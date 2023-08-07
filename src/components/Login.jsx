@@ -5,6 +5,7 @@ import Cookies from 'js-cookie';
 import { useState, useEffect } from 'react';
 
 function Login(props) {
+  //import .env variable
   const URL = 'http://localhost:4000/users/login';
   const navigate = useNavigate();
   const [showConfirmation, setShowConfirmation] = useState(false);
@@ -18,8 +19,9 @@ function Login(props) {
   // fetch request handler
   const handleSubmit = async (e) => {
     e.preventDefault();
+    //gives FormData the submitted entries from form
     const data = new FormData(e.target);
-    // form data
+    // form data - turns form data into object
     const submission = Object.fromEntries(data.entries());
     // submit fetch request to backend here
     try {

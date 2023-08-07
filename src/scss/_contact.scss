@@ -1,0 +1,107 @@
+.Contact {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background:radial-gradient(
+    circle at 24.1% 68.8%,
+    rgb(50, 50, 50) 0%,
+    rgb(0, 0, 0) 99.4%
+  );
+
+  .header {
+    color: white;
+    font-size: 40px;
+    position: absolute;
+    top: 14%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .card-container {
+    color: white;
+    font-family: "Montserrat", sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+    padding: 2px;
+    margin-top: 75px;
+    margin: 1rem;
+    max-width: 100%;
+    width: 20rem;
+    height: 50%;
+    min-height: 40%;
+    overflow: hidden;
+    background-color: #1f1f1f;
+    border-radius: 1rem;
+    box-shadow: $primary 0px 1px 2px 0px,
+    $primary 0px 2px 6px 2px;
+    display: flex;
+    flex-direction: column;
+    @include mobile {
+      flex-direction: column;
+      height: 100%;
+      max-width: 100%;
+    }
+    .card-img {
+      margin-top: 20%;
+      margin-bottom: 5%;
+      //width: 80%;
+      //height: 45%;
+      min-height: 45%;
+      min-width: 45%;
+      padding: 5px;
+      justify-content: center;
+      align-items: flex-start;
+      overflow: hidden;
+      object-fit: cover;
+      border-radius: 50%;
+      display: inline-block;
+      vertical-align: middle;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+    }
+
+    .name-and-social {
+
+      padding: 10px;
+      .name {
+        font-size: 25px;
+      }
+      .social-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 17%;
+        margin-bottom: 30px;
+        //transform: translateY(-2px);
+      }
+
+      .fa-cog {
+        color:$primary;
+      }
+
+      .component-1 {
+        margin-top: 10%;
+        margin-right: 50px;
+        &:hover {
+          transform: translateY(-6px);
+          cursor: pointer; 
+        }
+      }
+
+      .component-2 {
+        margin-top: 10%;
+        &:hover {
+          transform: translateY(-6px);
+          cursor: pointer;
+
+        }
+      }
+
+    }
+  }
+}
+
+
+
