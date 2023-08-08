@@ -26,11 +26,11 @@
 
 ## Introduction
 
-Kuview is an open-source tool for simplified Kubernetes metric visualization. It offers a customizable, interactive dashboard to track and monitor local Kubernetes clusters with real-time metrics in a user-friendly UI.
+KuView is an open-source tool for simplified Kubernetes metric visualization. It offers a customizable, interactive dashboard to track and monitor local Kubernetes clusters with real-time metrics in a user-friendly UI.
 
 ## Prerequisites
 
-This application requires you to have Docker, Minikube, and kubectl installed in order to view your local kubernetes cluster. Please download based on your operating system from the official website or Github releases.
+This application requires you to have Docker, Minikube, and Kubectl installed in order to view your local kubernetes cluster. Please download based on your operating system from the official website or Github releases.
 
 - Docker Desktop: [https://www.docker.com/products/docker-desktop/](https://www.docker.com/products/docker-desktop/)
 - Minikube: [https://minikube.sigs.k8s.io/docs/start/](https://minikube.sigs.k8s.io/docs/start/)
