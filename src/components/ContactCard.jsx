@@ -15,7 +15,7 @@ export const ContactCard = ({
     if (name === 'Cameron Kirksey' || 'Eric Rennie' || 'Richard Dao') {
         newStyle.marginTop = '4.5%';
     }
-
+    const [first, last] = name.split(' ')
     return (
         
         <div className='card-container'>
@@ -25,7 +25,8 @@ export const ContactCard = ({
 
             <div className="name-and-social">
 
-                <h2 className='name'>{name}</h2>
+                <h2 className='name'>{first}</h2>
+                <h2 className='name'>{last}</h2>
     
                 <div class='social-container' style={newStyle}>
 
