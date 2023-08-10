@@ -103,13 +103,7 @@ For more information, execute the following command in your terminal `kubectl ge
 
 ### Accounts
 
-Currently we are having issue loading the dashboard for any subsequent user, this is duo to a conflict in grafana. Upon a new user login, KuView's attempt to create a new Grafana dashboard with the same name as a previously created one. for a smooth experience, please only use **one** account for the time being.
-
-If you need to create and use a new account, before login please follow the steps listed below:
-
-- Execute the following command in your terminal `kubectl port-forward service/prometheus-grafana 3000:80`
-- Once on the dashboard, go to the "Dashboard" section and locate the "General" folder.
-- Within the "General" folder, delete the KuView dashboard to prevent any conflicts.
+We currently have an issue relaunching the Node server due to a persistent cookie after shutting down the app. This is because the Login page redirects to the dashboard without port forwarding. For a smooth experience, please either logout before killing the Node server or delete the cookie if you do encounter this issue.
 
 ## Open Source
 
