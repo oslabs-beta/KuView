@@ -16,7 +16,7 @@ const DashboardController = {
           dashboard: {
             id: null,
             uid: null,
-            title: 'KuView - TECH DEMO',
+            title: 'KuView',
             tags: ['templated'],
             timezone: 'browser',
             schemaVersion: 16,
@@ -40,6 +40,7 @@ const DashboardController = {
         })
         .then((data) => {
           const { uid } = data;
+          console.log('data within POST in dashboard', data);
           res.locals.uid = uid;
           return next();
         });
