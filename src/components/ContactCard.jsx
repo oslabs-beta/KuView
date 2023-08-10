@@ -28,7 +28,7 @@ export const ContactCard = ({
                 <h2 className='name'>{first}</h2>
                 <h2 className='name'>{last}</h2>
     
-                <div class='social-container' style={newStyle}>
+                <div className='social-container' style={newStyle}>
 
                     <a href={linkedin} target="_blank" rel="noopener noreferrer" className='component-1'>
                         <FontAwesomeIcon className="fa-cog" icon={faLinkedin} size ="3x" />
