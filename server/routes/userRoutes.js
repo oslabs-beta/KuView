@@ -23,6 +23,10 @@ router.post(
     return res.status(200).json(res.locals.updatedUser);
   }
 );
+router.get('/portfoward', installController.portFoward, (req, res) => {
+  console.log('exiting portfoward');
+  return res.status(200).json('hello');
+});
 // router.delete('/:user', userController.deleteUser, (req, res) => {
 //   console.log('Hello from userRoutes delete');
 //   return res.status(200).json(res.locals.user);

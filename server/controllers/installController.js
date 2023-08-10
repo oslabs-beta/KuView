@@ -30,12 +30,12 @@ const installController = {
   installChart: (req, res, next) => {
     spawnSync(
       'helm repo add prometheus-community https://prometheus-community.github.io/helm-charts',
-      { stdio: 'inherit' }
+      { stdio: 'inherit', shell: true }
     );
     spawnSync('helm repo update', { stdio: 'inherit', shell: true });
     spawnSync(
       'helm install prometheus prometheus-community/kube-prometheus-stack',
-      { stdio: 'inherit' }
+      { stdio: 'inherit', shell: true }
     );
     return;
   },

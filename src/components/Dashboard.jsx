@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Iframe from './Iframe';
 import Cookies from 'js-cookie';
-
 const Dashboard = (props) => {
   // fake simulation of loading and then displaying data afterwards
   const navigate = useNavigate();
@@ -34,9 +33,18 @@ const Dashboard = (props) => {
         console.log(err);
       }
     };
+
     if (Cookies.get('grafid') !== undefined) {
+      console.log('posting');
       setTimeout(() => {
-        setIsLoading(false);
+        const forward = async () => {
+          const res = await fetch('http://localhost:4000/users/portfoward');
+          if (res.ok) {
+            const objUser = await res.json();
+            setIsLoading(false);
+          }
+        };
+        forward();
       }, 3000);
     } else if (props.user !== '') {
       fetchData();

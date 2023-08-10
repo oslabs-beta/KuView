@@ -16,7 +16,7 @@ const DashboardController = {
           dashboard: {
             id: null,
             uid: null,
-            title: 'KuView - TECH DEMO',
+            title: 'KuView',
             tags: ['templated'],
             timezone: 'browser',
             schemaVersion: 16,
