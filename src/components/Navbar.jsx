@@ -15,7 +15,7 @@ function Navbar(props) {
     <div data-testid='navbar-element' className={styles.header}>
       <div className={styles.header__content}>
         <div>
-          <span className={styles.logo}>KuView</span>
+          <a className={styles.logo} href='/dashboard'>KuView</a>
         </div>
         <div>
           <nav
@@ -25,8 +25,8 @@ function Navbar(props) {
             <a className={styles.nav__item} href={'/login'}>
               Dashboard
             </a>
-            <a className={styles.nav__item} href={'/about'}>
-              About
+            <a className={styles.nav__item} href={'https://kuview.io'} target='_blank'>
+              Website
             </a>
             <a className={styles.nav__item} href={'/contact'}>
               Contact

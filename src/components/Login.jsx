@@ -11,7 +11,7 @@ function Login(props) {
   const [showConfirmation, setShowConfirmation] = useState(false);
   //
   useEffect(() => {
-    console.log('this is the cookie', Cookies.get('user'));
+    // console.log('this is the cookie', Cookies.get('user'));
     if (Cookies.get('grafid') !== undefined) {
       navigate('/dashboard', { cookie: Cookies.get('grafid') });
     }
@@ -33,7 +33,7 @@ function Login(props) {
         },
         body: JSON.stringify(submission),
       });
-      console.log('response: ', res);
+      // console.log('response: ', res);
       if (res.ok) {
         // take that response data (which holds the UID and pass it down through props)
         const objUser = await res.json();
