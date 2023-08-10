@@ -13,7 +13,7 @@ function Signup() {
     const data = new FormData(e.target);
     // logs the form data
     const submission = Object.fromEntries(data.entries());
-    console.log('submission', submission);
+    // console.log('submission', submission);
     try {
       const res = await fetch(URL, {
         method: 'POST',

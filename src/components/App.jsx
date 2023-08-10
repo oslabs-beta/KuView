@@ -5,7 +5,6 @@ import { Route, Routes } from 'react-router-dom';
 import Signup from './Signup';
 import Dashboard from './Dashboard';
 import Contact from './Contact';
-import About from './About';
 
 function App() {
   // useState hook to pass callback down to child component
@@ -27,7 +26,6 @@ function App() {
           element={<Dashboard user={user} setUser={funcSetUser} />}
         />
         <Route path='/' element={<Login setUser={funcSetUser} />} />
-        <Route path='/about' element={<About setUser={funcSetUser} />} />
         <Route path='/contact' element={<Contact setUser={funcSetUser} />} />
       </Routes>
     </div>
