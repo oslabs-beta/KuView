@@ -1,0 +1,56 @@
+@import './navVariables.scss';
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $Handjet-font;
+  color: $text;
+  // height: 200vh;
+}
+
+main {
+  height: calc(100vh - #{$header-height});
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .dash {
+    font-size: 38px;
+    text-align: center;
+    font-weight: 700;
+    color: $text2;
+    padding: $spacing-md $spacing-lg;
+    background: $bg2;
+    border-radius: $spacing-sm;
+    box-shadow: 0 0 10px $primary;
+    margin: 0 $spacing-md;
+
+    margin-top: -$header-height;
+
+    &__focus {
+      color: $primary;
+    }
+
+    @include breakpoint(md) {
+      font-size: 42px;
+    }
+  }
+}
+
+button {
+  // reset to default
+  font-family: inherit;
+  outline: none;
+  border: none;
+  background: none;
+  letter-spacing: inherit;
+  color: inherit;
+  font-size: inherit;
+  text-align: inherit;
+  padding: 0;
+}

@@ -1,0 +1,104 @@
+$size: 200px;
+$primaryColor: rgb(136, 171, 175);
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin: 0 auto;
+  width: 50%;
+}
+
+.wrapper {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(
+    circle at 24.1% 68.8%,
+    rgb(50, 50, 50) 0%,
+    rgb(0, 0, 0) 99.4%
+  );
+}
+@keyframes rotate {
+  0% {
+    transform: rotateX(-37.5deg) rotateY(45deg);
+  }
+  50% {
+    transform: rotateX(-37.5deg) rotateY(405deg);
+  }
+  100% {
+    transform: rotateX(-37.5deg) rotateY(405deg);
+  }
+}
+
+.cube,
+.cube * {
+  position: absolute;
+  width: $size + 1;
+  height: $size + 1;
+}
+
+.sides {
+  animation: rotate 3s ease infinite;
+  animation-delay: 0.8s;
+  transform-style: preserve-3d;
+  transform: rotateX(-37.5deg) rotateY(45deg);
+}
+
+.cube .sides * {
+  box-sizing: border-box;
+  background-color: rgba(30, 128, 208, 0.5);
+  border: calc($size / 10) solid white;
+}
+
+@mixin side($name, $rotate, $i) {
+  .#{$name} {
+    animation: #{$name}-animation 3s ease infinite;
+    animation-delay: $i * 100ms;
+    transform: #{$rotate} translateZ($size);
+    animation-fill-mode: forwards;
+    transform-origin: 50% 50%;
+  }
+
+  @keyframes #{$name}-animation {
+    0% {
+      opacity: 1;
+      transform: #{$rotate} translateZ($size);
+    }
+    20% {
+      opacity: 1;
+      transform: #{$rotate} translateZ(calc($size / 2));
+    }
+    70% {
+      opacity: 1;
+      transform: #{$rotate} translateZ(calc($size / 2));
+    }
+    90% {
+      opacity: 1;
+      transform: #{$rotate} translateZ($size);
+    }
+    100% {
+      opacity: 1;
+      transform: #{$rotate} translateZ($size);
+    }
+  }
+}
+
+.cube .sides {
+  @include side('top', rotateX(90deg), 0);
+  @include side('bottom', rotateX(-90deg), 0);
+  @include side('front', rotateY(0deg), 1);
+  @include side('back', rotateY(-180deg), 1);
+  @include side('left', rotateY(-90deg), 1);
+  @include side('right', rotateY(90deg), 1);
+}
+
+.text {
+  margin-top: $size * 3;
+  color: #fff;
+  font-size: 2rem;
+  width: 100%;
+  font-weight: 600;
+  text-align: center;
+}
