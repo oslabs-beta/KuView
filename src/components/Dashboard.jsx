@@ -12,7 +12,7 @@ const Dashboard = (props) => {
   const URL = 'http://localhost:4000/users/sendgraf';
   useEffect(() => {
     const fetchData = async () => {
-      console.log(props.login);
+      // console.log(props.login);
 
       try {
         const res = await fetch(URL, {
@@ -25,9 +25,9 @@ const Dashboard = (props) => {
         });
         if (res.ok) {
           const objUser = await res.json();
-          props.setUser(objUser);
+          // props.setUser(objUser);
           Cookies.set('grafid', objUser.grafid, { expires: 1 });
-          console.log('stopping loading');
+          // console.log('stopping loading');
           setIsLoading(false);
         }
       } catch (err) {
