@@ -8,7 +8,6 @@
 ![Docker](https://img.shields.io/badge/Docker-0db7ed?style=for-the-badge&logo=docker&logoColor=white)
 ![Prometheus](https://img.shields.io/badge/Prometheus-E7532D?style=for-the-badge&logo=prometheus&logoColor=white)
 ![Prometheus](https://img.shields.io/badge/Grafana-F69920?style=for-the-badge&logo=grafana&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![ReactRouter](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
@@ -19,7 +18,7 @@
 
 <div align='center'>
 
-• [Introduction](#introduction) • [Prerequisites](#prerequisites) • [Getting started](#getting-started) • [Installation](#installation) • [Considerations](#considerations) • [Open Source](#open-source) • [Meet The Team](#meet-the-team) •
+• [Introduction](#introduction) • [Prerequisites](#prerequisites) • [Getting started](#getting-started) • [Installation](#installation) • [Considerations](#considerations) • [Open Source](#open-source) • [Creators](#creators) •
 
 </div>
 </div>
@@ -45,7 +44,7 @@ After these are installed, start Minikube with Docker:
 
 ## Getting Started
 
-To get started with opening the web application, first clonse this repo onto your machine. In order to have the application work, you will need to create an .env file to store your mongo-URI and a port for the express server to run on. Within your .env file please type the following:
+To get started with opening the web application, first clone this repo onto your machine. In order to have the application work, you will need to create an .env file to store your mongo-URI and a port for the express server to run on. Within your .env file please type the following:
 
 ```js
 MONGO_URI = '<mongodb URI>';
@@ -112,9 +111,9 @@ If you need to create and use a new account, before login please follow the step
 - Once on the dashboard, go to the "Dashboard" section and locate the "General" folder.
 - Within the "General" folder, delete the KuView dashboard to prevent any conflicts.
 
-## Contributions
+## Open Source
 
-If you would like to contribute and make KuView a better Open Source Porject,we welcome you with open arms.
+If you would like to contribute and make KuView a better Open Source Project, we welcome you with open arms.
 
 Below lists a table of features we currently have and future plans.
 
@@ -144,10 +143,10 @@ Below lists a table of features we currently have and future plans.
 
 ## Creators
 
-|       Creators        |                                                                                                                           GitHub                                                                                                                            |                                                                                                                                   LinkedIn                                                                                                                                   |
-| :-------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|      Creators       |                                                                                                                           GitHub                                                                                                                            |                                                                                                                                  LinkedIn                                                                                                                                   |
+| :-----------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 | **Cameron Kirksey** | <a href="https://github.com/CameronKirksey21" target="blank"><img align="center" src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../releases/preview/2012/png/iconmonstr-github-1.png&r=56&g=136&b=255" alt="github" height="30" width="30" /></a> |    <a href="https://www.linkedin.com/in/cameronkirksey/" target="blank"><img align="center" src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../releases/preview/2012/png/iconmonstr-linkedin-3.png&r=56&g=136&b=255" alt="github" height="30" width="30" /></a>    |
-|   **Eric Esposito**   |   <a href="https://github.com/Ericesposito" target="blank"><img align="center" src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../releases/preview/2012/png/iconmonstr-github-1.png&r=56&g=136&b=255" alt="github" height="30" width="30" /></a>   |  <a href="https://www.linkedin.com/in/eric-andre-esposito" target="blank"><img align="center" src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../releases/preview/2012/png/iconmonstr-linkedin-3.png&r=56&g=136&b=255" alt="github" height="30" width="30" /></a>  |
-|    **Eric Rennie**    |   <a href="https://github.com/ericmrennie" target="blank"><img align="center" src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../releases/preview/2012/png/iconmonstr-github-1.png&r=56&g=136&b=255" alt="github" height="30" width="30" /></a>    |     <a href="https://www.linkedin.com/in/ericmrennie/" target="blank"><img align="center" src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../releases/preview/2012/png/iconmonstr-linkedin-3.png&r=56&g=136&b=255" alt="github" height="30" width="30" /></a>      |
-|    **Jason Yeung**    |    <a href="https://github.com/JasonY000" target="blank"><img align="center" src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../releases/preview/2012/png/iconmonstr-github-1.png&r=56&g=136&b=255" alt="github" height="30" width="30" /></a>     | <a href="https://www.linkedin.com/in/jason-yeung-yat-shun/" target="blank"><img align="center" src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../releases/preview/2012/png/iconmonstr-linkedin-3.png&r=56&g=136&b=255" alt="github" height="30" width="30" /></a> |
-|    **Richard Dao**    |    <a href="https://github.com/daorichard" target="blank"><img align="center" src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../releases/preview/2012/png/iconmonstr-github-1.png&r=56&g=136&b=255" alt="github" height="30" width="30" /></a>    |         <a href="https://www.linkedin.com/in/rdao" target="blank"><img align="center" src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../releases/preview/2012/png/iconmonstr-linkedin-3.png&r=56&g=136&b=255" alt="github" height="30" width="30" /></a>          |
+|  **Eric Esposito**  |   <a href="https://github.com/Ericesposito" target="blank"><img align="center" src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../releases/preview/2012/png/iconmonstr-github-1.png&r=56&g=136&b=255" alt="github" height="30" width="30" /></a>   |  <a href="https://www.linkedin.com/in/eric-andre-esposito" target="blank"><img align="center" src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../releases/preview/2012/png/iconmonstr-linkedin-3.png&r=56&g=136&b=255" alt="github" height="30" width="30" /></a>  |
+|   **Eric Rennie**   |   <a href="https://github.com/ericmrennie" target="blank"><img align="center" src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../releases/preview/2012/png/iconmonstr-github-1.png&r=56&g=136&b=255" alt="github" height="30" width="30" /></a>    |     <a href="https://www.linkedin.com/in/ericmrennie/" target="blank"><img align="center" src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../releases/preview/2012/png/iconmonstr-linkedin-3.png&r=56&g=136&b=255" alt="github" height="30" width="30" /></a>      |
+|   **Jason Yeung**   |    <a href="https://github.com/JasonY000" target="blank"><img align="center" src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../releases/preview/2012/png/iconmonstr-github-1.png&r=56&g=136&b=255" alt="github" height="30" width="30" /></a>     | <a href="https://www.linkedin.com/in/jason-yeung-yat-shun/" target="blank"><img align="center" src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../releases/preview/2012/png/iconmonstr-linkedin-3.png&r=56&g=136&b=255" alt="github" height="30" width="30" /></a> |
+|   **Richard Dao**   |    <a href="https://github.com/daorichard" target="blank"><img align="center" src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../releases/preview/2012/png/iconmonstr-github-1.png&r=56&g=136&b=255" alt="github" height="30" width="30" /></a>    |         <a href="https://www.linkedin.com/in/rdao" target="blank"><img align="center" src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../releases/preview/2012/png/iconmonstr-linkedin-3.png&r=56&g=136&b=255" alt="github" height="30" width="30" /></a>          |
