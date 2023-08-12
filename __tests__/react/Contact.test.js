@@ -4,24 +4,25 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 
 // import components
-import Contact from '../../src/components/Contact';
+// import Contact from '../../src/components/Contact';
 
-xdescribe('Contact', () => {
-    xdescribe('rendering', () => {
-        beforeAll(() => {
-            render(<Contact />)
-        });
-
-        xit('renders header', () => {
-            const header = screen.getByText('The Team');
-            expect(header).toBeInTheDocument();
-        });
-
-        xit('renders image', () => {
-            
-        })
-
-
+// Contact testing needs refactoring before running
+xdescribe('Contact Component', () => {
+  describe('rendering', () => {
+    beforeAll(() => {
+      render(<Contact />)
     });
+
+    it('renders header', () => {
+      const header = screen.getByText('The Team');
+      expect(header).toBeInTheDocument();
+    });
+
+    it('renders image', () => {
+        
+    })
+
+
+  });
 });
 
