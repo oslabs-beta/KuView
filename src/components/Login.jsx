@@ -31,7 +31,7 @@ function Login(props) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(),
+        body: JSON.stringify(submission),
       });
       // console.log('response: ', res);
       if (res.ok) {

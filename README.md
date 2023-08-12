@@ -103,7 +103,9 @@ For more information, execute the following command in your terminal `kubectl ge
 
 ### Accounts
 
-We currently have an issue relaunching the Node server due to a persistent cookie after shutting down the app. This is because the Login page redirects to the dashboard without port forwarding. For a smooth experience, please either logout before killing the Node server or delete the cookie if you do encounter this issue.
+- If a new account is created, any old account will have an issue loading the dashboard. This is due to a conflict in Grafana. Upon a new user login, KuView creates/overrides the existing Grafana dashboard and assigns it a new ID. for a smooth experience, please only use **one** account or the newest account created.
+
+- We currently have an issue relaunching the Node server due to a persistent cookie after shutting down the app. This is because the Login page redirects to the dashboard without port forwarding. For a smooth experience, please either logout before killing the Node server or delete the cookie if you do encounter this issue.
 
 ## Open Source
 
