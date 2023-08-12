@@ -65,7 +65,7 @@ describe('App', () => {
         </MemoryRouter>,
       );
       const dashboardElement = screen.getByTestId('dashboard-element');
-       expect(dashboardElement).toBeInTheDocument();
+      expect(dashboardElement).toBeInTheDocument();
     })
 
     it('does not render Dashboard component when cookie is not present', () => {
