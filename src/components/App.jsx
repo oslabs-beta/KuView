@@ -9,7 +9,9 @@ import Contact from './Contact';
 function App() {
   // useState hook to pass callback down to child component
   // update user state name to something that is more of a reference to grafid
+  // Here, user represents the user's grafid cookie
   const [user, setUser] = useState('');
+  // creating function to pass down to child components to update user grafid in state
   function funcSetUser(str) {
     setUser(str);
     return;
