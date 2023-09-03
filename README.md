@@ -47,8 +47,8 @@ After these are installed, start Minikube with Docker:
 To get started with opening the web application, first clone this repo onto your machine. In order to have the application work, you will need to create an .env file to store your mongo-URI and a port for the express server to run on. Within your .env file please type the following:
 
 ```js
-MONGO_URI = '<mongodb URI>';
-PORT = 4000;
+MONGO_URI='<mongodb URI>'
+PORT=4000
 ```
 
 Once that file is created, open the terminal and install all the packages with

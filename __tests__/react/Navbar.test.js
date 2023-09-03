@@ -1,16 +1,16 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
-import { render, fireEvent, screen, waitFor } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
+import { render, fireEvent } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import Navbar from '../../src/components/Navbar';
-import { Routes, Route } from 'react-router-dom';
 
 describe('Navbar Component', () => {
   it('renders the logo', () => {
+    // destructure getByText from the screen object created by render
     const { getByText } = render(
-      <BrowserRouter>
-        <Navbar setUser={() => {}} />
-      </BrowserRouter>
+      <MemoryRouter>
+        <Navbar />
+      </MemoryRouter>
     );
     const logoElement = getByText('KuView');
     expect(logoElement).toBeInTheDocument();
@@ -18,9 +18,9 @@ describe('Navbar Component', () => {
 
   it('toggles menu when button is clicked', () => {
     const { getByRole, getByTestId } = render(
-      <BrowserRouter>
-        <Navbar setUser={() => {}} />
-      </BrowserRouter>
+      <MemoryRouter>
+        <Navbar />
+      </MemoryRouter>
     );
 
     const menuToggleButton = getByRole('button', { name: 'Open Menu' });
@@ -29,25 +29,25 @@ describe('Navbar Component', () => {
     expect(menuElement).not.toHaveClass('nav__open');
 
     fireEvent.click(menuToggleButton);
-
     expect(menuElement).toHaveClass('nav__open');
 
     fireEvent.click(menuToggleButton);
-
     expect(menuElement).not.toHaveClass('nav__open');
   });
 
   it('logs out when logout button is clicked', () => {
     const setUserMock = jest.fn();
     const { getByRole, getAllByRole } = render(
-      <BrowserRouter>
+      <MemoryRouter>
         <Navbar setUser={setUserMock} />
-      </BrowserRouter>
+      </MemoryRouter>
     );
 
     const menuToggleButton = getByRole('button', { name: 'Open Menu' });
     fireEvent.click(menuToggleButton);
 
+    // Due to our menu toggle for mobile view, we technically have two logout buttons
+    // We specifically select the intended button using the 0th index
     const logoutButtons = getAllByRole('button', { name: 'Logout Button' });
     fireEvent.click(logoutButtons[0]);
 
