@@ -46,8 +46,11 @@ app.use((err, req, res, next) => {
   return res.status(errorObj.status).json(errorObj.message);
 });
 
+//if (process.env.NODE_ENV === 'development') {
+// // statically serve everything in the build folder on the route '/build'
 // app.listen(process.env.PORT, () => {
 //   console.log(`Listening on port ${process.env.PORT}`);
 // });
+//}
 
 module.exports = app;
