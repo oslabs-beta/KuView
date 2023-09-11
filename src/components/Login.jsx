@@ -76,7 +76,7 @@ function Login(props) {
               placeholder='Password'
               required
             />
-            <button>Login</button>
+            <button aria-label='Login'>Login</button>
           </form>
           {showConfirmation && <p id='error'>Wrong username or password! </p>}
         </div>
