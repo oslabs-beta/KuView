@@ -4,6 +4,7 @@ const app = express();
 const path = require('path');
 const cors = require('cors');
 const userRoutes = require('./routes/userRoutes.js');
+const testingRoutes = require('./routes/testingRoutes.js');
 const cookieParser = require('cookie-parser');
 
 const db = require('./database/db.config.js');
@@ -16,7 +17,7 @@ app.use(cookieParser());
 
 //to the user routes
 app.use('/users', userRoutes);
-
+app.use('/testing', testingRoutes);
 // statically serve everything in the build folder on the route '/build'
 app.use(express.static(path.join(__dirname, '../build')));
 
@@ -26,7 +27,6 @@ if (process.env.NODE_ENV === 'production') {
 }
 // serve index.html on the route '/'
 app.get('/', (req, res) => {
-  console.log('testing');
   return res.status(200).sendFile(path.join(__dirname, '../index.html'));
 });
 
