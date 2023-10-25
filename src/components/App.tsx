@@ -12,7 +12,7 @@ function App() {
   // Here, user represents the user's grafid cookie
   const [user, setUser] = useState('');
   // creating function to pass down to child components to update user grafid in state
-  function funcSetUser(str) {
+  function funcSetUser(str: string): void {
     setUser(str);
     return;
   }
@@ -28,7 +28,7 @@ function App() {
           element={<Dashboard user={user} setUser={funcSetUser} />}
         />
         <Route path='/' element={<Login setUser={funcSetUser} />} />
-        <Route path='/contact' element={<Contact setUser={funcSetUser} />} />
+        <Route path='/contact' element={<Contact />} />
       </Routes>
     </div>
   );

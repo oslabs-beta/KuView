@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "ESNext",
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "moduleResolution": "Node",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    // "allowImportingTsExtensions": true,
+    "noImplicitAny": false,
+    "allowJs": true,
+    "outDir": "./dist"
+  },
+  "include": ["./src/components/*", "./types/**/*", "./server/**/*"]
+}

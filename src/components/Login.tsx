@@ -4,7 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { useState, useEffect } from 'react';
 
-function Login(props) {
+interface LoginProps {
+  setUser: (str: string) => void;
+}
+function Login(props: LoginProps) {
   //import .env variable
   const URL = 'http://localhost:4000/users/login';
   const navigate = useNavigate();
@@ -13,7 +16,7 @@ function Login(props) {
   useEffect(() => {
     // console.log('this is the cookie', Cookies.get('user'));
     if (Cookies.get('grafid') !== undefined) {
-      navigate('/dashboard', { cookie: Cookies.get('grafid') });
+      navigate('/dashboard', { state: { cookie: Cookies.get('grafid') } });
     }
   }, []);
   // fetch request handler

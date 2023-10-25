@@ -7,7 +7,7 @@ dotenv.config();
 module.exports = {
   //entry is where webpack starts to build dependency graph
   mode: process.env.NODE_ENV,
-  entry: path.resolve(__dirname, 'src/index.js'),
+  entry: path.resolve(__dirname, 'src/index.tsx'),
   //output is where Webpack saves our bundle
   output: {
     path: path.resolve(__dirname, 'build'),
@@ -24,15 +24,15 @@ module.exports = {
 
   mode: process.env.NODE_ENV,
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(js|jsx|ts|tsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: 'ts-loader',
         },
       },
       {

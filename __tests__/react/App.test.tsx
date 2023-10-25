@@ -15,7 +15,7 @@ describe('App Component', () => {
       // check document for presence of JS variable
       expect(appComponent).toBeInTheDocument();
     });
-  
+
     it('renders the Navbar component', () => {
       // see logic above
       render(<App />, { wrapper: MemoryRouter });
@@ -23,34 +23,33 @@ describe('App Component', () => {
       const navbarElement = screen.getByTestId('navbar-element');
       expect(navbarElement).toBeInTheDocument();
     });
-  
-    
+
     it('renders the Login component when the route is /login', () => {
       render(
         // testing the route provided in the initialEntries prop
         <MemoryRouter initialEntries={['/login']}>
           <App />
-        </MemoryRouter>,
+        </MemoryRouter>
       );
       const loginElement = screen.getByTestId('login-element');
       expect(loginElement).toBeInTheDocument();
     });
-  
+
     it('renders the Login component when the route is /', () => {
       render(
         <MemoryRouter initialEntries={['/']}>
           <App />
-        </MemoryRouter>,
+        </MemoryRouter>
       );
       const loginElement = screen.getByTestId('login-element');
       expect(loginElement).toBeInTheDocument();
     });
-  
+
     it('renders the Signup component when the route is /signup', () => {
       render(
         <MemoryRouter initialEntries={['/signup']}>
           <App />
-        </MemoryRouter>,
+        </MemoryRouter>
       );
       const signupElement = screen.getByTestId('signup-element');
       expect(signupElement).toBeInTheDocument();
@@ -69,22 +68,22 @@ describe('App Component', () => {
       render(
         <MemoryRouter initialEntries={['/dashboard']}>
           <App />
-        </MemoryRouter>,
+        </MemoryRouter>
       );
       const dashboardElement = screen.getByTestId('dashboard-element');
       expect(dashboardElement).toBeInTheDocument();
-    })
+    });
 
     it('does not render Dashboard component when cookie is not present', () => {
       render(
         <MemoryRouter initialEntries={['/dashboard']}>
           <App />
-        </MemoryRouter>,
+        </MemoryRouter>
       );
 
       const dashboardElement = screen.queryByTestId('dashboard-element');
       // in this case, without a cookie, the dashboard should not render, hence 'not' seen below
       expect(dashboardElement).not.toBeInTheDocument();
-    })
-  })
+    });
+  });
 });
