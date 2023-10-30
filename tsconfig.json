@@ -12,7 +12,13 @@
     // "allowImportingTsExtensions": true,
     "noImplicitAny": false,
     "allowJs": true,
+    "forceConsistentCasingInFileNames": true,
     "outDir": "./dist"
   },
-  "include": ["./src/components/*", "./types/**/*", "./server/**/*"]
+  "include": [
+    "./src/components/*",
+    "./types/**/*",
+    "./server/**/*",
+    "./server/*/"
+  ]
 }

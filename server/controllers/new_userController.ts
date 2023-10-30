@@ -1,10 +1,15 @@
-const User = require('../models/userModel');
-const bcrypt = require('bcryptjs');
+import { Request, Response, NextFunction } from 'express';
+import User from '../models/userModel';
+import bcrypt from 'bcryptjs';
 
 const UserController = {
-  async createUser(req, res, next) {
+  async createUser(req: Request, res: Response, next: NextFunction) {
     try {
-      const { username, email, password } = req.body as { username: string, email: string, password: string };
+      const { username, email, password } = req.body as {
+        username: string;
+        email: string;
+        password: string;
+      };
       const newUser = await User.create({
         username,
         email,
@@ -23,9 +28,12 @@ const UserController = {
     }
   },
 
-  async getUser(req, res, next) {
+  async getUser(req: Request, res: Response, next: NextFunction) {
     try {
-      const { username, password } = req.body;
+      const { username, password } = req.body as {
+        username: string;
+        password: string;
+      };
       const foundUser = await User.findOne({
         username,
       });

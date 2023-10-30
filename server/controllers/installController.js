@@ -1,5 +1,5 @@
 const { spawn, spawnSync } = require('child_process');
-const installController = {
+const InstallController = {
   installBrew: (req, res, next) => {
     function checkBrew() {
       const running = spawnSync('brew', ['--version'], {
@@ -107,4 +107,4 @@ const installController = {
   },
 };
 
-module.exports = installController;
+module.exports = InstallController;
