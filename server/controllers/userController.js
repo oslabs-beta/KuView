@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 const UserController = {
   async createUser(req, res, next) {
     try {
-      const { username, email, password } = req.body as { username: string, email: string, password: string };
+      const {username, email, password} = req.body;
       const newUser = await User.create({
         username,
         email,
@@ -25,7 +25,7 @@ const UserController = {
 
   async getUser(req, res, next) {
     try {
-      const { username, password } = req.body;
+      const {username, password} = req.body;
       const foundUser = await User.findOne({
         username,
       });
@@ -41,14 +41,14 @@ const UserController = {
         return next({
           log: 'Failed credentials',
           status: 400,
-          message: { err: 'Failed matching user credentials' },
+          message: {err: 'Failed matching user credentials'},
         });
       }
     } catch {
       return next({
         log: 'An error occurred within the getUser controller found in userController.js.',
         status: 400,
-        message: { err: 'An error occurred when trying to find user.' },
+        message: {err: 'An error occurred when trying to find user.'},
       });
     }
   },
