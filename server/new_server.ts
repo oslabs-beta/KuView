@@ -1,8 +1,8 @@
-import express, { Express, Request, Response, NextFunction } from 'express';
+import express, {Express, Request, Response, NextFunction} from 'express';
 import path from 'path';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
-import userRoutes from './routes/userRoutes';
+import userRoutes from './routes/new_userRoutes';
 import db from './database/db.config.js';
 require('dotenv').config();
 
@@ -12,7 +12,7 @@ db();
 app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({extended: true}));
 
 app.use('/users', userRoutes);
 
@@ -36,7 +36,7 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   const defaultErr = {
     log: 'Express error handler caught unknown middleware error',
     status: 500,
-    message: { err: 'An error occurred' },
+    message: {err: 'An error occurred'},
   };
   const errorObj = Object.assign({}, defaultErr, err);
   return res.status(errorObj.status).json(errorObj.message);

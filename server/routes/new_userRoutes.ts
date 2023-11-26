@@ -1,7 +1,7 @@
-import { Request, Response, NextFunction } from 'express';
-import { Router } from 'express';
-import UserController from '../controllers/userController';
-import DashboardController from '../controllers/dashboardController';
+import {Request, Response, NextFunction} from 'express';
+import {Router} from 'express';
+import UserController from '../controllers/new_userController';
+import DashboardController from '../controllers/new_dashboardController';
 import InstallController from '../controllers/installController';
 
 const router = Router();
@@ -28,4 +28,4 @@ router.post(
   }
 );
 
-module.exports = router;
+export default router;

@@ -1,4 +1,4 @@
-const { spawn, spawnSync } = require('child_process');
+const {spawn, spawnSync} = require('child_process');
 const InstallController = {
   installBrew: (req, res, next) => {
     function checkBrew() {
@@ -18,30 +18,30 @@ const InstallController = {
         [
           '-c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"',
         ],
-        { stdio: 'inherit', shell: true }
+        {stdio: 'inherit', shell: true}
       );
       return;
     }
   },
   installHelm: (req, res, next) => {
-    spawnSync('brew', ['install', 'helm'], { stdio: 'inherit' });
+    spawnSync('brew', ['install', 'helm'], {stdio: 'inherit'});
     return;
   },
   installChart: (req, res, next) => {
     spawnSync(
       'helm repo add prometheus-community https://prometheus-community.github.io/helm-charts',
-      { stdio: 'inherit' }
+      {stdio: 'inherit'}
     );
-    spawnSync('helm repo update', { stdio: 'inherit', shell: true });
+    spawnSync('helm repo update', {stdio: 'inherit', shell: true});
     spawnSync(
       'helm install prometheus prometheus-community/kube-prometheus-stack',
-      { stdio: 'inherit' }
+      {stdio: 'inherit'}
     );
     return;
   },
   installProm: (req, res, next) => {
     // looks for all pods that are currently running.
-    const lookup = spawnSync('kubectl', ['get', 'pods'], { encoding: 'utf-8' });
+    const lookup = spawnSync('kubectl', ['get', 'pods'], {encoding: 'utf-8'});
     const output = lookup.stdout.split('\n');
     let target;
     console.log('finding pod');
@@ -80,17 +80,17 @@ const InstallController = {
   },
   installFunc: async (req, res, next) => {
     console.log('installing...');
-    const { grafid } = req.body;
+    const {grafid} = req.body;
     try {
       if (grafid === '' || !grafid) {
         console.log('install brew');
-        installController.installBrew();
+        InstallController.installBrew();
         console.log('install helm');
-        installController.installHelm();
+        InstallController.installHelm();
         console.log('installing helm charts');
-        installController.installChart();
+        InstallController.installChart();
         console.log('applying grafana.ini settings');
-        installController.installProm();
+        InstallController.installProm();
       }
       setTimeout(() => {
         return next();

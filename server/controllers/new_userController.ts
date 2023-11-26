@@ -1,11 +1,11 @@
-import { Request, Response, NextFunction } from 'express';
+import {Request, Response, NextFunction} from 'express';
 import User from '../models/userModel';
 import bcrypt from 'bcryptjs';
 
 const UserController = {
   async createUser(req: Request, res: Response, next: NextFunction) {
     try {
-      const { username, email, password } = req.body as {
+      const {username, email, password} = req.body as {
         username: string;
         email: string;
         password: string;
@@ -30,7 +30,7 @@ const UserController = {
 
   async getUser(req: Request, res: Response, next: NextFunction) {
     try {
-      const { username, password } = req.body as {
+      const {username, password} = req.body as {
         username: string;
         password: string;
       };
@@ -49,17 +49,17 @@ const UserController = {
         return next({
           log: 'Failed credentials',
           status: 400,
-          message: { err: 'Failed matching user credentials' },
+          message: {err: 'Failed matching user credentials'},
         });
       }
     } catch {
       return next({
         log: 'An error occurred within the getUser controller found in userController.js.',
         status: 400,
-        message: { err: 'An error occurred when trying to find user.' },
+        message: {err: 'An error occurred when trying to find user.'},
       });
     }
   },
 };
 
-module.exports = UserController;
+export default UserController;
