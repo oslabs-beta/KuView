@@ -40,12 +40,12 @@ const DashboardController = {
         })
         .then((data) => {
           const {uid} = data;
-          console.log('data within POST in dashboard', data);
+          //console.log('data within POST in dashboard', data);
           res.locals.uid = uid;
           return next();
         });
     } catch (err) {
-      console.log('logging error from dashboardController');
+      //console.log('logging error from dashboardController');
       return next({
         log: 'An error occurred within the createUser found in dashboardController',
         status: 400,
