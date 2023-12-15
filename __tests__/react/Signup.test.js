@@ -3,7 +3,6 @@ import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
 
-
 // IMPORT COMPONENTS:
 import Login from '../../src/components/Login';
 import Signup from '../../src/components/Signup';
